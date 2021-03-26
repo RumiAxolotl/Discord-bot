@@ -1,10 +1,4 @@
 const Discord = require("discord.js");
-const status = {
-    online: "Online",
-    idle: "Idle",
-    dnd: "Do Not Disturb",
-    offline: "Offline/Invisible"
-};
 module.exports = {
     name: "userinfo",
     desciption: "get infos of user",
@@ -31,7 +25,7 @@ module.exports = {
                     .addField("**Username:**", `${member.user.username}`, true)
                     .addField("**Discriminator:**", `#${member.user.discriminator}`, true)
                     .addField("**ID:**", `${member.user.id}`, true)
-                    .addField("**Status:**", `${status[member.user.presence.status]}`, true)
+                    .addField("**Status:**", `${member.user.presence.status}`, true)
                     .addField("**Joined On:**", `${member.joinedAt.toLocaleString()}`, true)
                     .addField("**Created On:**", `${member.user.createdAt.toLocaleString()}`, true)
                     .setDescription(`${member.roles.cache.map(role => role.toString()).join(' ')}`)
