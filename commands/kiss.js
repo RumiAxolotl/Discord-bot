@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const superagent = require("snekfetch");
 
 module.exports = {
-    name: "kick",
-    description: "Kicks a member from the server",
+    name: "kiss",
+    description: "Kiss someone",
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
