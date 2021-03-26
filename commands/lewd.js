@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
 module.exports = {
-    name: "lewd",
+    name: "nsfw",
     description: "get lewd image",
 
     async run(client, message, args) {
@@ -12,7 +12,6 @@ module.exports = {
                     .setTitle('Lewd Image')
                     .setImage(response.body.url)
                     .setColor(`RANDOM`)
-                    .setFooter(`oh mlem`)
                     .setURL(response.body.url);
                 message.channel.send(embed);
             }).catch((err) => message.channel.send({
