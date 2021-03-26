@@ -30,7 +30,7 @@ module.exports = {
                     .addField("**Joined On:**", `${member.joinedAt.toLocaleString()}`, true)
                     .addField("**Created On:**", `${member.user.createdAt.toLocaleString()}`, true)
                     .setDescription(`${member.roles.cache.map(role => role.toString()).join(' ')}`)
-                    .setFooter(`© ${message.guild.me.displayName}`, client.user.displayAvatarURL());
+                    .setTimestamp()
 
                 message.channel.send(embed);
             } else {
