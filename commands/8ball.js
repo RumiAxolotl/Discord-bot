@@ -22,8 +22,8 @@ module.exports = {
         responses[Math.floor(Math.random() * responses.length - 1)];
         let Embed = new Discord.MessageEmbed()
         .setTitle(`8Ball!`)
-        .addField(`Your question:`, `${ question }`)
-        .addField(`My reply:`, `${ response }, Quack`)
+        .addField(`**Your Question:**`, `${ question }`)
+        .addField(`**The Answer Is:`, `${ response }, Quack`)
         .setColor(`RANDOM`)
         .setTimestamp();
       message.channel.send(Embed);
