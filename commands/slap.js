@@ -5,6 +5,7 @@ module.exports = {
     description: "slap someone",
 
     async run(client, message, args) {
+        message.delete();
         const user = message.mentions.users.first();
         if (!user) return message.channel.send({
             embed: {
