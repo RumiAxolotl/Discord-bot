@@ -18,7 +18,7 @@ module.exports = {
         "Not have any hope",
         "It is decidedly so",
         "It is certain",
-        "As i see it, YES"
+        "As i see it, YES",
         "Can't be!",
         " Ask again later",
         "Better not tell you now",
