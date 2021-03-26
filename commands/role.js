@@ -6,7 +6,7 @@ module.exports = {
     async run (client, message, args){
         if (!message.member.permissions.has("ADMINISTRATOR"))
             return message.channel.send(
-                `You do not have admin, ${message.author.username}`
+                `You don't have enough powah to use this command, ${message.author.username}`
             );
         if (args[0].toLowerCase() == "create") {
             let rName = message.content.split(`${default_prefix}role create `).join("");
