@@ -23,7 +23,7 @@ module.exports = {
         }
         superagent.get('https://nekos.life/api/v2/img/slap')
             .end((err, response) => {
-                const embed = new Discord.RichEmbed()
+                const embed = new Discord.MessageEmbed()
                     .setTitle(user.username + " just got slapped by " + message.author.username)
                     .setImage(response.body.url)
                     .setColor(`RANDOM`)
