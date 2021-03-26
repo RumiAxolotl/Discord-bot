@@ -13,7 +13,7 @@ module.exports = {
         message.delete();
         const embed = new Discord.MessageEmbed();
         embed.setTitle(`**Offline**`)
-            .setDescription(`I am ready!`)
+            .setDescription(`Bye, have a good time`)
             .setTimestamp()
             .setColor(`#3d3d3d`);
         message.channel.send(embed).then((sent) => {
