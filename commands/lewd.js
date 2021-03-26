@@ -5,8 +5,8 @@ module.exports = {
     description: "get lewd image",
 
     async run(client, message, args) {
-        message.delete();
         if (!message.channel.NSFW) return message.channel.send('**NSFW Channel only!**')
+        message.delete();
         else {
             superagent.get('https://nekos.life/api/v2/img/lewd')
                 .end((err, response) => {
