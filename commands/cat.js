@@ -7,7 +7,7 @@ module.exports = {
         message.delete();
         superagent.get('https://nekos.life/api/v2/img/meow')
             .end((err, response) => {
-                const embed = new Discord.RichEmbed()
+                const embed = new Discord.MessageEmbed()
                     .setTitle("Random cat")
                     .setImage(response.body.url)
                     .setColor(`RANDOM`)
