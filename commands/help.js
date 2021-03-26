@@ -14,7 +14,7 @@ module.exports = {
             .addField(`**Util:**`, "`ping`, `serverinfo`, `userinfo`, `channelcount`,`servercount`, `weather`, `poll`, `say`")
             .addField(`**NSFW**:`, "`nsfw`, `cum`, `spank`, `femdom`")
             .addField(`**Other:**`, "`cfs`, `calculate`")
-            .setFooter("Get the link with `invite` command!")
+            .setFooter("Get the link with d*invite command!")
             .setThumbnail(`https://cdn.discordapp.com/icons/754326147566796811/148897d1d39622e4639cafa03b3d123a.png?size=4096`);
         message.channel.send(embed);
     }
