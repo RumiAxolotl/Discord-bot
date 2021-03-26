@@ -41,7 +41,7 @@ module.exports = {
         let Embed = new Discord.MessageEmbed()
         .setTitle(`8Ball!`)
         .addField(`**Your Question:**`, `${ question }`)
-        .addField(`**The Duck Seerer Reply:**`, `${ response }, Quack`)
+        .addField(`**The Duck Seerer Reply:**`, `${ response } :duck:`)
         .setColor(`RANDOM`)
         .setTimestamp();
       message.channel.send(Embed);
