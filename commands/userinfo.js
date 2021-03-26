@@ -22,7 +22,6 @@ module.exports = {
                     .setColor("RANDOM")
                     .setTitle("User Info")
                     .setThumbnail(member.user.displayAvatarURL())
-                    .setFooter(`${message.author.user.tag} `, message.author.user.displayAvatarURL())
                     .addField("**Username:**", `${member.user.username}`, true)
                     .addField("**Discriminator:**", `#${member.user.discriminator}`, true)
                     .addField("**ID:**", `${member.user.id}`, true)
