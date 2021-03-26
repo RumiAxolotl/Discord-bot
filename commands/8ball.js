@@ -17,6 +17,10 @@ module.exports = {
         "Not in a million years",
         "Maybe or Maybe not",
         "Not have any hope",
+        "It is decidedly so",
+        "It is certain",
+        "As i see it, YES"
+        "Can't be!"
       ];
       let response =
         responses[Math.floor(Math.random() * responses.length - 1)];
