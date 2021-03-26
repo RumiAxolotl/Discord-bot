@@ -25,7 +25,6 @@ module.exports = {
                     .addField("**Username:**", `${member.user.username}`, true)
                     .addField("**Discriminator:**", `#${member.user.discriminator}`, true)
                     .addField("**ID:**", `${member.user.id}`, true)
-                    .addField("**Status:**", `${member.user.presence.status}`, true)
                     .addField("**Joined On:**", `${member.joinedAt.toLocaleString()}`, true)
                     .addField("**Created On:**", `${member.user.createdAt.toLocaleString()}`, true)
                     .setDescription(`${member.roles.cache.map(role => role.toString()).join(' ')}`)
