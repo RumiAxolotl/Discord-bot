@@ -6,7 +6,7 @@ module.exports = {
 
     async run(client, message, args) {
         const embed = new Discord.MessageEmbed();
-        embed.setTitle(`**Invite`)
+        embed.setTitle(`**Invite**`)
             .setColor(`#fcd303`)
             .setDescription(`You can invite me with the link:\nhttps://discord.com/api/oauth2/authorize?client_id=750718927985967144&permissions=8&scope=bot`)
             .setTimestamp()
