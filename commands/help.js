@@ -9,10 +9,10 @@ module.exports = {
         embed.setTitle('HELP')
             .setTimestamp()
             .setColor('#fcd303')
-            .addField(`**Moderation:**`, `kick; ban; mute; unmute; slowmode`)
+            .addField(`**Moderation:**`, `kick; ban; mute; unmute; slowmode; clear`)
             .addField(`**Fun:**`, `kick; hug; pat; slap; spank; tickle; poke; 8ball`)
-            .addField(`**Misc:**`, `ping; serverinfo; userinfo; channelcount; weather`)
-            .addField(`**Other:**`, `nsfw; cfs; calculate; poll; say`)
+            .addField(`**Misc:**`, `ping; serverinfo; userinfo; channelcount; weather; poll; say`)
+            .addField(`**Other:**`, `nsfw; cfs; calculate`)
             .setFooter(`Get the link with \`invite\` command!`)
             .setThumbnail(`https://cdn.discordapp.com/icons/754326147566796811/148897d1d39622e4639cafa03b3d123a.png?size=4096`);
         message.channel.send(embed);
