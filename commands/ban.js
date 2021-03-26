@@ -29,21 +29,17 @@ module.exports = {
                     await banned.ban(); //ban the user
 
                     //create an embed with the ban info and send it to the mod-logs channel
-                    const embed = new MessageEmbed()
-                        .setColor(purple_medium)
+                    const embed = new Discord.MessageEmbed()
+                        .setColor("RED")
                         .setTitle(`Member banned by ${banner}`)
                         .addField('Banned Member', `${banned}`, true)
                         .addField('Server', `${message.guild.name}`, true)
                         .setDescription(`**Reason:** ${reason}`)
-                        .setTimestamp()
-                        .setFooter(`© ${message.guild.me.displayName}`, client.user.displayAvatarURL());
-
+                        .setTimestamp();
                     message.send(embed);
                 } else {
                     message.channel.send("Member not found.");
                 }
-            } catch (e) {
-                console.error(e); //log any errors in the console
             }
         }
     }
