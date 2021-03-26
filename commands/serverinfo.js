@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const { stripIndents } = require("common-tags");
 
 module.exports = {
     name: "serverinfo",
@@ -7,7 +6,7 @@ module.exports = {
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
-        let embed = new MessageEmbed()
+        let embed = new Discord.MessageEmbed()
             .setColor(cyan)
             .setTitle("Server Info")
             .setThumbnail(message.guild.iconURL())
