@@ -10,8 +10,8 @@ module.exports = {
       return message.channel.send(`You did not specify your question!`);
     else {
       let responses = [
-        "Yes",
-        "No",
+        "Yas",
+        "Nope",
         "Definetly",
         "Absoloutely",
         "Not in a million years",
