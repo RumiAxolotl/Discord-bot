@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
 module.exports = {
-    name: "kiss",
-    description: "Kiss someone",
+    name: "slap",
+    description: "slap someone",
 
     async run(client, message, args) {
         const user = message.mentions.users.first();
