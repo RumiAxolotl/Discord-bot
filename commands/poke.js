@@ -5,6 +5,7 @@ module.exports = {
     description: "Poke someone",
 
     async run(client, message, args) {
+        message.delete();
         module.exports.run = async (client, message, args) => {
             const user = message.mentions.users.first();
             if (!user)
