@@ -14,7 +14,7 @@ module.exports = {
 
         superagent.get('https://nekos.life/api/v2/img/spank')
             .end((err, response) => {
-                const embed = new Discord.RichEmbed()
+                const embed = new Discord.MessageEmbed()
                     .setTitle(":smirk: Spank")
                     .setImage(response.body.url)
                     .setColor(`RANDOM`)
