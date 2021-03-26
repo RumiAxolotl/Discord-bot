@@ -31,8 +31,8 @@ module.exports = {
                     kicked.kick();
 
                     //create a new embed with the kick info
-                    const embed = new MessageEmbed()
-                        .setColor(purple_medium)
+                    const embed = new Discord.MessageEmbed()
+                        .setColor("RED")
                         .setTitle(`Member kicked by ${kicker}`)
                         .addField('Kicked Member', `${kicked}`, true)
                         .addField('Server', `${message.guild.name}`, true)
