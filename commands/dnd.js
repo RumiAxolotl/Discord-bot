@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const { ownerID } = require("../config.json");
 module.exports = {
     name: "dnd",
-    description: "Set bot status to online",
+    description: "Set bot status to do not disturb",
 
     async run(client, message, args) {
         if (message.author.id != ownerID) return;
