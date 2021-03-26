@@ -4,47 +4,41 @@ module.exports = {
     name: "kick",
     description: "Kicks a member from the server",
 
+    async run (client, message, args) {
+    if(message.channel.type === 'dm') return;
+        if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send('You can\'t use that, Quack!')
+        if(!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send('I don\'t have the right permissions, Quack!')
 
-    async run(client, message, args) {
-        //check if the user trying to run the command has permissions to kick users
-        if (!message.member.hasPermission('KICK_MEMBERS')) {
-            message.channel.send("You do not have enough powah to use this command");
-        } else if (!args[0]) {
-            //check if there was a first argument
-            message.channel.send("You have to enter a user to kick.");
-        } else if (!args[1]) {
-            //check if there was a second argument
-            message.channel.send("Enter a kick reason.");
-        } else {
-            //attempt to kick the user
-            try {
-                const kicked = await message.mentions.members.first(); //get the first user mentioned
-                const kicker = message.author.tag; //get the user that sent the command
-                const reason = args[1]; //get the second argument
+        const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
-                //if the user was kicked
-                if (kicked) {
-                    //check if the user is kickable
-                    if (!message.guild.member(kicked).kickable) return message.channel.send("That user is not kickable.");
+        if(!args[0]) return message.channel.send('Please specify a user');
 
-                    //attempt to kick the user
-                    kicked.kick();
+        if(!member) return message.channel.send('Can\'t  find this duck. Quack');
+        if(!member.kickable) return message.channel.send('This duck can\'t be kicked. They\'re too powahfool, Quack! ');
 
-                    //create a new embed with the kick info
-                    const embed = new Discord.MessageEmbed()
-                        .setColor("RED")
-                        .setTitle(`Member kicked by ${kicker}`)
-                        .addField('Kicked Member', `${kicked}`, true)
-                        .addField('Server', `${message.guild.name}`, true)
-                        .setDescription(`**Reason:** ${reason}`)
-                        .setTimestamp()
-                        .setFooter(`© ${message.guild.me.displayName}`, client.user.displayAvatarURL());
+        if(member.id === message.author.id) return message.channel.send('Quack Quack, you can\'t kick yourself!');
 
-                    message.channel.send(embed);
-                } else {
-                    message.channel.send("Member not found.");
-                }
-            }
-        }
+        let KickReason = args.slice(1).join(" ");
+
+        if(!KickReason) KickReason = 'Unspecified';
+
+        member.kick({ reason:  KickReason })
+            .catch(err => {
+                if (err) return message.channel.send('Something went wrong')
+            });
+
+        const Kickembed = new Discord.MessageEmbed()
+        .setTitle('Member Kicked')
+        .setColor('#f50000')
+        .setThumbnail(member.user.displayAvatarURL())
+        .addField('User Kicked', member, true)
+        .addField('Kicked by', message.author, true)
+        .addField('Reason', KickReason, true)
+        .setFooter('Time kicked', client.user.displayAvatarURL())
+        .setTimestamp()
+
+        message.channel.send(Kickembed);
+
+
     }
 }
