@@ -39,5 +39,6 @@ module.exports = {
                         description: "Something went wrong... :cry:"
                     }
                 }));
+        }
     }
 }
