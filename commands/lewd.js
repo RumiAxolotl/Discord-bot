@@ -6,7 +6,7 @@ module.exports = {
 
     async run(client, message, args) {
         message.delete();
-        if (message.channel.NSFW == false) return message.channel.send({
+        if (message.channel.NSFW == "false") return message.channel.send({
             embed: {
                 color: 16734039,
                 description: "This Channel Isn't NSFW Channel!"
