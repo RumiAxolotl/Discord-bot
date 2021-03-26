@@ -6,7 +6,11 @@ module.exports = {
 
     async run(client, message, args) {
         message.delete();
-        if (!message.channel.NSFW) return message.channel.send('**NSFW Channel only!**')
+        if (!message.channel.NSFW) return message.channel.send('**NSFW Channel only!**').then((sent) => {
+            setTimeout(function () {
+                sent.delete();
+            }, 5000);
+        });
         else {
             superagent.get('https://nekos.life/api/v2/img/lewd')
                 .end((err, response) => {
