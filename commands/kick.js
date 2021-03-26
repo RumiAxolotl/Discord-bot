@@ -21,7 +21,6 @@ module.exports = {
                 const kicked = await message.mentions.members.first(); //get the first user mentioned
                 const kicker = message.author.tag; //get the user that sent the command
                 const reason = args[1]; //get the second argument
-                const channel = client.channels.cache.find(channel => channel.name === "mod-logs"); //look for the channel called mod-logs
 
                 //if the user was kicked
                 if (kicked) {
@@ -41,7 +40,7 @@ module.exports = {
                         .setTimestamp()
                         .setFooter(`© ${message.guild.me.displayName}`, client.user.displayAvatarURL());
 
-                    channel.send(embed);
+                    message.channel.send(embed);
                 } else {
                     message.channel.send("Member not found.");
                 }
