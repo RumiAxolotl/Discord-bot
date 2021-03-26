@@ -14,7 +14,7 @@ module.exports = {
             .setColor('RANDOM')
             .setFooter(`${message.author.username} created this poll.`)
         let msgEmbed = await pollChannel.send(embedPoll);
-        await msgEmbed.react('👍')
-        await msgEmbed.react('👎')
+        await msgEmbed.react('✅')
+        await msgEmbed.react('❌')
     }
 }
