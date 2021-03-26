@@ -24,7 +24,7 @@ module.exports = {
                     .setThumbnail(member.user.displayAvatarURL())
                     .setAuthor(`${member.user.tag} (${member.id})`, member.user.displayAvatarURL())
                     .addField("**Username:**", `${member.user.username}`, true)
-                    .addField("**Discriminator:**", `${member.user.discriminator}`, true)
+                    .addField("**Discriminator:**", `#${member.user.discriminator}`, true)
                     .addField("**ID:**", `${member.user.id}`, true)
                     .addField("**Status:**", `${member.user.presence.status}`, true)
                     .addField("**Joined On:**", `${member.joinedAt.toLocaleString()}`, true)
