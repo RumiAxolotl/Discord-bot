@@ -43,6 +43,7 @@ module.exports = {
         .addField(`**Your Question:**`, `${ question }`)
         .addField(`**The Duck Seerer Reply:**`, `${ response } :duck:`)
         .setColor(`RANDOM`)
+        .setThumbnail(`https://i.pinimg.com/originals/d7/36/6e/d7366eb0b396c3ed7a8d96e529b94ba4.jpg`)
         .setTimestamp();
       message.channel.send(Embed);
     }
