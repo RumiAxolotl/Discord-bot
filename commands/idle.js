@@ -1,10 +1,11 @@
 const Discord = require('discord.js');
+const { ownerID } = require("../config.json");
 module.exports = {
     name: "idle",
     description: "Set bot status to online",
 
     async run(client, message, args) {
-        if (message.author.userID != `443728905908649985`)
+        if (message.author.userID != ownerID)
             return message.channel.send(
                 `You don't have enough powah to use this command, ${message.author.username}`)
         client.user.setPresence({
