@@ -20,7 +20,6 @@ module.exports = {
                 const banned = await message.mentions.members.first(); //get the first member that was mentioned
                 const banner = message.author.tag; //get the user that sent the command
                 const reason = args[1]; //get the second argument
-                const channel = client.channels.cache.find(channel => channel.name === "mod-logs"); //attempt to find the channel called mod-logs
 
                 //if the banned user exists
                 if (banned) {
@@ -39,7 +38,7 @@ module.exports = {
                         .setTimestamp()
                         .setFooter(`© ${message.guild.me.displayName}`, client.user.displayAvatarURL());
 
-                    channel.send(embed);
+                    message.send(embed);
                 } else {
                     message.channel.send("Member not found.");
                 }
