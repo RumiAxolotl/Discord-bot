@@ -29,7 +29,7 @@ client.on("error", console.error);
 
 client.on('ready', () => {
     console.log(`${client.user.username} is ready, Quack`);
-    client.user.setActivity(`Duck POWAH`)
+    client.user.setActivity(`Rubber Duck`)
 });
 
 client.on("message", async message => {
