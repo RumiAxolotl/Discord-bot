@@ -6,7 +6,12 @@ module.exports = {
 
     async run(client, message, args) {
         message.delete();
-        if (!message.channel.NSFW) return message.channel.send('**NSFW Channel only!**').then((sent) => {
+        if (!message.channel.NSFW) return message.channel.send({
+            embed: {
+                color: 16734039,
+                description: "This Channel Isn't NSFW Channel!"
+            }
+        }).then((sent) => {
             setTimeout(function () {
                 sent.delete();
             }, 5000);
