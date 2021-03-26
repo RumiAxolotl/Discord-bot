@@ -15,7 +15,7 @@ module.exports = {
             .setThumbnail(`${message.guild.iconURL()}`)
             .addField("**Owner:**", `${message.guild.owner}`, true)
             .addField("**Location:**", `${message.guild.region}`, true)
-            .addField("**Created At:**", `${message.guild.createdAt}`, true)
+            .addField("**Created At:**", `${message.guild.createdAt.toLocaleString()}`, true)
             .addField("**Member Count:**", `${message.guild.memberCount}`, true)
             .addField("**Emoji Count:**", `${message.guild.emojis.cache.size}`, true)
             .addField("**Roles Count:**", `${message.guild.roles.cache.size}`, true)
