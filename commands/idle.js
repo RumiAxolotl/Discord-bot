@@ -5,7 +5,7 @@ module.exports = {
     description: "Set bot status to online",
 
     async run(client, message, args) {
-        if (!message.member.permissions.has("ADMINISTRATOR")) return;
+        if (message.author.id != ownerID) return;
         client.user.setPresence({
             status: 'idle',
         });
