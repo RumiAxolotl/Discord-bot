@@ -16,7 +16,7 @@ module.exports = {
         }
         superagent.get('https://nekos.life/api/v2/img/erofeet')
             .end((err, response) => {
-                const embed = new Discord.RichEmbed()
+                const embed = new Discord.MessageEmbed()
                     .setTitle(":smirk: Erofeet")
                     .setImage(response.body.url)
                     .setColor(`RANDOM`)
