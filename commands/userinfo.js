@@ -18,7 +18,7 @@ module.exports = {
 
             //if the member exists create an embed with info about that user and send it to the channel
             if (member) {
-                let embed = new MessageEmbed()
+                let embed = new Discord.MessageEmbed()
                     .setColor("RANDOM")
                     .setTitle("User Info")
                     .setThumbnail(member.user.displayAvatarURL())
