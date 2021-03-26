@@ -5,9 +5,7 @@ module.exports = {
     description: "Set bot status to online",
 
     async run(client, message, args) {
-        if (message.author.userID != ownerID)
-            return message.channel.send(
-                `You don't have enough powah to use this command, ${message.author.username}`)
+        if (message.author.userID != ownerID) return;
         client.user.setPresence({
                     status: 'online',
                 });
