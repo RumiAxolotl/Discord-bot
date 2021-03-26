@@ -12,11 +12,11 @@ module.exports = {
 
         if(textChannel) {
             msg = args.slice(1).join(" ");
-            const embed = new MessageEmbed().setFooter(`~~A Duck Apears And Says~~`).setColor('#07DEFF').setDescription(`${msg}`).setTimestamp();
+            const embed = new MessageEmbed().setFooter(`~~A Duck Apears And Says~~`).setColor('#fcd303').setDescription(`${msg}`).setTimestamp();
             textChannel.send(embed);
         } else {
             msg = args.join(" ");
-            const embed = new MessageEmbed().setFooter(`~~A Duck Apears And Says~~`).setColor('#07DEFF').setDescription(`${msg}`).setTimestamp();
+            const embed = new MessageEmbed().setFooter(`~~A Duck Apears And Says~~`).setColor('#fcd303').setDescription(`${msg}`).setTimestamp();
             message.channel.send(embed)
         }
     }
