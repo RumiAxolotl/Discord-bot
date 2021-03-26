@@ -8,7 +8,7 @@ module.exports = {
             return message.channel.send(
                 `You don't have enough powah to use this command, ${message.author.username}`)
         client.user.setPresence({
-            status: 'online',
+            status: 'invisible',
         });
         message.delete();
         const embed = new Discord.MessageEmbed();
