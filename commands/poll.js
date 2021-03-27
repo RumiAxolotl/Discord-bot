@@ -9,8 +9,6 @@ module.exports = {
 
         const pollmessage = await args.join(" ");
 
-        var pollrandom = ["✅", "❌",];
-
         if (pollmessage.length <= 0) return message.channel.send({
             embed: {
                 color: 16734039,
@@ -18,7 +16,7 @@ module.exports = {
             }
         })
         const embed = new Discord.MessageEmbed()
-            .setTitle(":ballot_box: " + `${message.author.username}` + " A vote has begun! React with the emojis to vote! :ballot_box:",)
+            .setTitle(":ballot_box: " + `${message.author.username}` + " has created a poll! React with the emojis to vote! :ballot_box:",)
             .setColor("RANDOM")
             .addField("Poll", pollmessage,)
             .setFooter("Note: The voting will be ended in 1 minute ! ")
