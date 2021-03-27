@@ -10,7 +10,7 @@ module.exports = {
             .setTimestamp()
             .setColor('#fcd303')
             .addField(`**Moderation:**`, "`kick`, `ban`, `mute`, `unmute`, `slowmode`, `clear`")
-            .addField(`**Fun:**`, "`kick`, `hug`, `pat`, `slap`, `tickle`, `baka`, `poke`, `8ball`, `dog`, `cat`")
+            .addField(`**Fun:**`, "`kick`, `hug`, `pat`, `cuddle`, `slap`, `tickle`, `baka`, `poke`, `8ball`, `dog`, `cat`")
             .addField(`**Util:**`, "`ping`, `serverinfo`, `userinfo`, `channelcount`,`servercount`, `weather`, `poll`, `say`")
             .addField(`**NSFW**:`, "`lewd`, `cum`, `spank`, `femdom`, `foxgirl`, `futa`, `eroneko`, `erofeet`, `anal`, `boobs`, `pussy`, `blowjob`")
             .addField(`**Other:**`, "`cfs`, `calculate`")
