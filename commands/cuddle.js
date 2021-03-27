@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
 module.exports = {
-    name: "kiss",
-    description: "Kiss someone",
+    name: "cuddle",
+    description: "Cuddle someone",
 
     async run(client, message, args) {
         message.delete();
