@@ -1,6 +1,11 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+    name: "poll",
+    description: "vote for something",
+
+async run(client, message, args) {
+    message.delete();
 
     const pollmessage = await args.join(" ");
 
@@ -16,14 +21,14 @@ module.exports.run = async (client, message, args) => {
         .setTitle(":ballot_box: " + `${message.author.username}` + " A vote has begun! React with the emojis to vote! :ballot_box:",)
         .setColor("RANDOM")
         .addField("Pool", pollmessage,)
-        .setFooter("Note: The voting will be ended in 30 seconds! • Bot created by " + `${cnf.owner}`,)
+        .setFooter("Note: The voting will be ended in 1 minute ! )
         .setTimestamp()
     const pollTopic = await message.channel.send({ embed })
     await pollTopic.react(`✅`);
     await pollTopic.react(`❌`);
     // Create a reaction collector
     const filter = (reaction) => reaction.emoji.name === '✅';
-    const collector = pollTopic.createReactionCollector(filter, { time: 30000 });
+    const collector = pollTopic.createReactionCollector(filter, { time: 60000 });
     collector.on('end', collected => message.channel.send({
         embed: {
             color: 3447003,
