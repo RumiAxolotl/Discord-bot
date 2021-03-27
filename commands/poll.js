@@ -23,19 +23,8 @@ module.exports = {
             .addField("Poll", pollmessage,)
             .setFooter("Note: The voting will be ended in 1 minute ! ")
             .setTimestamp();
-    const pollTopic = await message.channel.send({ embed })
+        const pollTopic = await message.channel.send({ embed })
         await pollTopic.react(`✅`);
         await pollTopic.react(`❌`);
-        // Create a reaction collector
-        const filter = (reaction) => reaction.emoji.name === '✅';
-        const collector = pollTopic.createReactionCollector(filter, { time: 60000 });
-        collector.on('end', collected => message.channel.send({
-            embed: {
-                color: 3447003,
-                title: ":tada: Collected " + `${collected.size}` + " positive votes! :tada:",
-                description: "My answer is: " + pollrandom[Math.floor(Math.random() * pollrandom.length)] + ", but I'm afraid to vote."
-            }
-        })
-        );
     }
 }
