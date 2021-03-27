@@ -1,28 +1,20 @@
 const Discord = require("discord.js");
+const { run } = require("./clear");
 
 module.exports = {
     name: "poll",
-    description: "vote for something",
-
     async run(client, message, args) {
-        message.delete();
+        if (message.author.bot || message.channel.type === "dm") return;
+        let pollChannel = message.mentions.channels.first();
+        let pollDescription = args.slice(1).join(' ');
 
-        const pollmessage = await args.join(" ");
-
-        if (pollmessage.length <= 0) return message.channel.send({
-            embed: {
-                color: 16734039,
-                description: "You must provide a text to ask a question!"
-            }
-        })
-        const embed = new Discord.MessageEmbed()
-            .setTitle(":ballot_box: " + `${message.author.username}` + " has created a poll! React with the emojis to vote! :ballot_box:",)
-            .setColor("RANDOM")
-            .addField("Poll", pollmessage,)
-            .setFooter("Note: The voting will be ended in 1 minute ! ")
-            .setTimestamp();
-        const pollTopic = await message.channel.send({ embed })
-        await pollTopic.react(`✅`);
-        await pollTopic.react(`❌`);
+        let embedPoll = new Discord.MessageEmbed()
+            .setTitle(':duck: **A POLL HAS BEGUN! REACT TO VOTE** :duck:')
+            .setDescription(pollDescription)
+            .setColor('RANDOM')
+            .setFooter(`${message.author.username} created this poll.`)
+        let msgEmbed = await pollChannel.send(embedPoll);
+        await msgEmbed.react('✅')
+        await msgEmbed.react('❌')
     }
 }
