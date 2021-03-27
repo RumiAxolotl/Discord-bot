@@ -21,8 +21,8 @@ module.exports = {
             .setTitle(":ballot_box: " + `${message.author.username}` + " A vote has begun! React with the emojis to vote! :ballot_box:",)
             .setColor("RANDOM")
             .addField("Pool", pollmessage,)
-            .setFooter("Note: The voting will be ended in 1 minute ! )
-                .setTimestamp()
+            .setFooter("Note: The voting will be ended in 1 minute ! ")
+            .setTimestamp();
     const pollTopic = await message.channel.send({ embed })
         await pollTopic.react(`✅`);
         await pollTopic.react(`❌`);
