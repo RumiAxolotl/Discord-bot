@@ -17,7 +17,7 @@ module.exports = {
                 description: "You must provide a text to ask a question!"
             }
         })
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
             .setTitle(":ballot_box: " + `${message.author.username}` + " A vote has begun! React with the emojis to vote! :ballot_box:",)
             .setColor("RANDOM")
             .addField("Poll", pollmessage,)
