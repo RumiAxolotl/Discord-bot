@@ -6,7 +6,7 @@ module.exports = {
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
-        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don\'t have enoug powah to run this command");
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don\'t have enough powah to run this command");
         let textChannel = message.mentions.channels.first()
         message.delete()
 
