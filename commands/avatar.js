@@ -7,7 +7,7 @@ module.exports = {
     async run (client, message, args) {
     if(message.channel.type === 'dm') return;
             if (!message.mentions.users.size) {     
-        let embed = new Discord.message()
+        let embed = new Discord.MessageEmbed()
 		
           .setColor("RANDOM")
           .setAuthor(message.author.username + "'s Avatar", message.author.displayAvatarURL)
