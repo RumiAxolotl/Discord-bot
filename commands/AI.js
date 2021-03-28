@@ -13,6 +13,7 @@ module.exports = {
             embed.setTitle(`**AI Ducky**`)
                 .setColor("RANDOM")
                 .setDescription(res.data.cnt)
+                .setFooter(`Powah by Axolotl#9352`)
                 .setThumbnail(`https://cdn.discordapp.com/icons/754326147566796811/148897d1d39622e4639cafa03b3d123a.png?size=4096`)
                 .setTimestamp();
             message.channel.send(embed);
