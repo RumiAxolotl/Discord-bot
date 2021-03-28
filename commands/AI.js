@@ -1,14 +1,14 @@
 const axios = require('axios');
 const Discord = require('discord.js');
 module.exports = {
-    name: "AI",
+    name: "ai",
     description: "smart bot",
 
     async run(client, message, args) {
         message.delete();
         try {
             const res = await axios.get(`
-            http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=1&msg=${encodeURIComponent(message.content)}`);
+            http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=1&msg=${encodeURIComponent(args.slice(1).join(" "))}`);
             message.channel.send(res.data.cnt);
         }
         catch (err) {
