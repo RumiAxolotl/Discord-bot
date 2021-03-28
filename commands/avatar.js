@@ -6,18 +6,30 @@ module.exports = {
 
     async run (client, message, args) {
     if(message.channel.type === 'dm') return;
-        let member = message.mentions.users.first() || message.author
+            if (!message.mentions.users.size) {     
+        let embed = new Discord.message()
+		
+          .setColor("RANDOM")
+          .setAuthor(message.author.username + "'s Avatar", message.author.displayAvatarURL)
+          .setImage(message.author.displayAvatarURL)  
+        
+        message.channel.send(embed)
+    }
 
-        let avatar = member.displayAvatarURL({size: 1024})
+    const avatarList = message.mentions.users.map(user => {
+        return `${user.username},${user.displayAvatarURL}`;
+    });
 
+    for (var i = 0; i < avatarList.length; i++) {
+        let Username = avatarList[i].split(',')[0];
+        let AvatarURL = avatarList[i].split(",").pop();
 
-        const embed = new Discord.MessageEmbed()
-        .setTitle(`${member.username}'s avatar`)
-        .setURL(avatar)
-        .setImage(avatar)
-        .setColor("RANDOM")
-        .setTimestamp()
-
+        let embed = new Discord.RichEmbed()
+          .setColor("RANDOM")
+          .setAuthor(Username + "'s Avatar", AvatarURL)
+          .setImage(AvatarURL)
+        
         message.channel.send(embed);
     }
 }
+    }
