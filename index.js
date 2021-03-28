@@ -37,7 +37,7 @@ client.on("message", async message => {
 
     if(message.author.bot) return;
     if(!message.content.startsWith(prefix)) {
-        if (message.channel.id == '825682437861539850') {
+        if (message.channel.id == '821359250353160213') {
             try {
                 const res = await axios.get(`http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=1&msg=${encodeURIComponent(message.content)}`);
                 const embed = new Discord.MessageEmbed();
