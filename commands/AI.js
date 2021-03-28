@@ -18,7 +18,11 @@ module.exports = {
                     description: "Bot Is ERROR, Try Again Later!"
                 }
             }
-            );
+            ).then((sent) => {
+                setTimeout(function () {
+                    sent.delete();
+                }, 2500);
+            });
         }
     }
 }
