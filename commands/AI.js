@@ -8,10 +8,16 @@ module.exports = {
         message.delete();
         try {
             const res = await axios.get(`
-            http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=1&msg=${encodeURIComponent(args.slice(1).join(" "))}`);
-            message.channel.send(res.data.cnt);
+            http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=1&msg=${encodeURIComponent(args.join(" "))}`);
+            const embed = new Discord.MessageEmbed();
+            embed.setTitle(`**AI Ducky**`)
+                .setColor("RANDOM")
+                .setDescription(res.data.cnt)
+                .setThumbnail(`https://cdn.discordapp.com/icons/754326147566796811/148897d1d39622e4639cafa03b3d123a.png?size=4096`)
+                .setTimestamp();
+            message.channel.send(embed);
         }
-        catch (err) {
+        catch(e) {
             message.channel.send({
                 embed: {
                     color: 16734039,
