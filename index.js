@@ -9,6 +9,7 @@ const { readdirSync } = require('fs');
 const { join } = require('path');
 
 const config = require('./config.json');
+
 const axios = require('axios');
 
 let prefix = (config.default_prefix);
@@ -38,7 +39,7 @@ client.on("message", async message => {
     if(!message.content.startsWith(prefix)) {
         if (message.channel.id == '825682437861539850') {
             try {
-                const res = await axios.get(`http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=&msg=${encodeURIComponent(message.content())}`);
+                const res = await axios.get(`http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=1&msg=${encodeURIComponent(message.content)}`);
                 const embed = new Discord.MessageEmbed();
                 embed.setTitle(`**AI Ducky**`)
                     .setColor("RANDOM")
