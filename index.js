@@ -9,7 +9,7 @@ const { readdirSync } = require('fs');
 const { join } = require('path');
 
 const config = require('./config.json');
-
+const axios = require('axios');
 
 let prefix = (config.default_prefix);
 
