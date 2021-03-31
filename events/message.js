@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 const { prefix } = require("../config.json");
-let prefix = (config.default_prefix);
 const axios = require('axios');
 module.exports = {
     name: 'message',
     once: true,
     execute(client, message) {
+        let prefix = (config.default_prefix);
         if (message.author.bot) return;
         if (!message.content.startsWith(prefix)) {
             if (message.channel.id == '825792822254764104') {
