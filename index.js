@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 const { token, default_prefix } = require('./config.json');
 
-const { readdirSync } = require('fs');
+const fs = require('fs');
 
 const { join } = require('path');
 
@@ -16,12 +16,20 @@ let prefix = (config.default_prefix);
 
 
 client.commands = new Discord.Collection();
-client.snipes = new Discord.Collection();
-const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
-
+const commandFiles = fs.readFileSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
     const command = require(join(__dirname, "commands", `${file}`));
     client.commands.set(command.name, command);
+}
+
+
+client.events = new Discord.Collection();
+
+const eventFiles = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
+for (const file of eventFiles) {
+    const event = require(`./events/${file}`);
+    const eventName = file.split(".")[0];
+    client.logger.event(`Loading EVT - ${eventName}`);
 }
 
 
