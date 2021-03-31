@@ -14,7 +14,6 @@ const axios = require('axios');
 
 let prefix = (config.default_prefix);
 
-client.snipes = new Discord.Collection();
 
 
 client.commands = new Discord.Collection();
