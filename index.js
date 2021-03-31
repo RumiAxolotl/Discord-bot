@@ -10,10 +10,6 @@ const { join } = require('path');
 
 const config = require('./config.json');
 
-const axios = require('axios');
-
-let prefix = (config.default_prefix);
-
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
