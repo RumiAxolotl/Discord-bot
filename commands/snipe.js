@@ -18,4 +18,4 @@ module.exports = {
         if (msg.attachment) Embed.setImage(msg.attachment);
         message.channel.send(Embed);
     },
-};
+}
