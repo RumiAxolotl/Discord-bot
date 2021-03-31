@@ -5,7 +5,7 @@ module.exports = {
     description: "get latest delete message",
 
     async run(client, message, args) {
-        const msg = bot.snipes.get(message.channel.id)
+        const msg = client.snipes.get(message.channel.id)
         const embed = new Discord.MessageEmbed()
             .setAuthor(msg.author, msg.member.user.displayAvatarURL())
             .setDescription(msg.content)
