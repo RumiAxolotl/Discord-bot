@@ -14,7 +14,7 @@ module.exports = {
         });
         let custom = Discord.Util.parseEmoji(emoji);
         const embed = new Discord.MessageEmbed()
-            .setThumbnail(`Your emoji : ${emoji}`)
+            .setTitle(`Your emoji : ${emoji}`)
             .setColor("RANDOM");
         
         if (custom.id) {
