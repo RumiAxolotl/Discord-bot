@@ -16,15 +16,14 @@ let prefix = (config.default_prefix);
 
 
 client.commands = new Discord.Collection();
-const commandFiles = fs.readFileSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
-    const command = require(join(__dirname, "commands", `${file}`));
+    const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
 
 
 client.events = new Discord.Collection();
-
 const eventFiles = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
     const event = require(`./events/${file}`);
