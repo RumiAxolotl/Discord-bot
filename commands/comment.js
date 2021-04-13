@@ -9,7 +9,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed();
         embed.setFooter(`UserID: ${message.author.id}`)
             .setTimestamp()
-            .setDescription(message.content.slice(9))
+            .setDescription(message.content.slice(10))
             .setTitle("**COMMENTS**")
             .setColor("RANDOM");
         channel.send(embed);
