@@ -4,7 +4,7 @@ module.exports = {
     name: "comment",
     description: "receive comments about bot and code",
     async run(client, message, args) {
-        let channel = message.guild.members.get(config.logcomment);
+        let channel = client.channels.cache.get(config.logcomment);
         if (message.author.bot) return;
         const embed = new Discord.MessageEmbed();
         embed.setAuthor(`${message.author.id}`)
