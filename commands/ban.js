@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const {ownerID} = require ("../config.json");
 
 module.exports = {
     name: "ban",
@@ -6,7 +7,7 @@ module.exports = {
 
     async run (client, message, args) {
     if(message.channel.type === 'dm') return;
-        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('You can\'t use that, Quack!')
+        if (!message.member.hasPermission("BAN_MEMBERS") || message.author.id != ownerID) return message.channel.send('You can\'t use that, Quack!')
         if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send('I don\'t have the right permissions, Quack!')
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
