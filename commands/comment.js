@@ -7,9 +7,9 @@ module.exports = {
         let channel = client.channels.cache.get(config.logcomment);
         if (message.author.bot) return;
         const embed = new Discord.MessageEmbed();
-        embed.setAuthor(`${message.author.id}`)
+        embed.setFooter(`UserID: ${message.author.id}`)
             .setTimestamp()
-            .setDescription(`${message.content}`)
+            .setDescription(message.content.slice(9))
             .setTitle("**COMMENTS**")
             .setColor("RANDOM");
         channel.send(embed);
