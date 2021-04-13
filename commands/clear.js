@@ -4,7 +4,7 @@ module.exports = {
     description: "Clears messages",
 
     async run(client, message, args) {
-        if (!message.member.hasPermission('MANAGE_MESSAGES') || message.author.id != ownerID)
+        if (!message.member.hasPermission('MANAGE_MESSAGES') && message.author.id != ownerID)
             return message.channel.send("You don't have enough powah  use this command");
         if (!isNaN(message.content.split(' ')[1])) {
             let amount = 0;
