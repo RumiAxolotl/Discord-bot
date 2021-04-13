@@ -4,7 +4,7 @@ module.exports = {
     name: "comment",
     description: "receive comments about bot and code",
     async run(client, message, args) {
-        let owner = message.guild.members.get(config.ownerID);
+        let channel = message.guild.members.get(config.logcomment);
         if (message.author.bot) return;
         const embed = new Discord.MessageEmbed();
         embed.setAuthor(`${message.author.id}`)
@@ -12,6 +12,6 @@ module.exports = {
             .setDescription(`${message.content}`)
             .setTitle("**COMMENTS**")
             .setColor("RANDOM");
-        owner.send(embed);
+        channel.send(embed);
     }
 }
