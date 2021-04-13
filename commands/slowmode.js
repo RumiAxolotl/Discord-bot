@@ -1,10 +1,12 @@
 const Discord = require('discord.js');
 const { default_prefix } = require("../config.json");
+const { ownerID } = require("../config.json");
 
 module.exports = {
     name: "slowmode",
     description: "Set the slowmode for the channel!",
-    async run(client, message, args) {
+  async run(client, message, args) {
+    if (!message.member.permissions.has("MANAGE_CHANNEL") || message.author.id != ownerID) return message.channel.send("You don't have enough powah  use this command");
     if (!args[0])
     return message.channel.send(
         `You did not specify the time in seconds you wish to set this channel's slow mode too!`
