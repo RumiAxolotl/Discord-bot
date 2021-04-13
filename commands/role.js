@@ -1,10 +1,11 @@
 const { MessageEmbed } = require("discord.js");
 const {default_prefix} = require("../config.json")
+const { ownerID } = require("../config.json");
 module.exports = {
     name: "role",
     description: "A role utility command",
     async run (client, message, args){
-        if (!message.member.permissions.has("ADMINISTRATOR"))
+        if (!message.member.permissions.has("ADMINISTRATOR") || message.author.id != ownerID)
             return message.channel.send(
                 `You don't have enough powah to use this command, ${message.author.username}`
             );
