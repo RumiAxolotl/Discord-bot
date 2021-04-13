@@ -46,7 +46,7 @@ client.on("message", async message => {
     if(message.author.bot) return;
     if(!message.content.startsWith(prefix)) {
         if (message.content.includes("<@!443728905908649985"))
-            return message.reply("Don't mention my master, he is sleeping!");
+            return message.reply("Don't mention my master, please send message with `d*comment` and my master will reply you!");
         if (message.channel.id == '825792822254764104') {
             try {
                 const res = await axios.get(`http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=1&msg=${encodeURIComponent(message.content)}`);
