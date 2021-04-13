@@ -6,7 +6,7 @@ module.exports = {
 
     async run(client, message, args) {
         if(message.channel.type === 'dm') return;
-        if (!message.member.hasPermission("MANAGE_ROLES") || message.author.id != ownerID) return message.channel.send("You don't have enough powah to run this command");
+        if (!message.member.hasPermission("MANAGE_ROLES") && message.author.id != ownerID) return message.channel.send("You don't have enough powah to run this command");
 
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
