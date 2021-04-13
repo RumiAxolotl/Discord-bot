@@ -39,6 +39,11 @@ for (const file of eventFiles) {
 
 client.on("error", console.error);
 
+client.on("message", async message => {
+    if (message.content.includes("<@!443728905908649985"))
+        return message.channel.send("Don't mention my master, he is sleeping!")
+});
+
 
 client.on("message", async message => {
 
