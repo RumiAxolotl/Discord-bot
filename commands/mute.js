@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
+const { ownerID } = require("../config.json");
 module.exports = {
     name: "mute",
     description: "Mute a member from your server",
 
     async run(client, message, args) {
         if(message.channel.type === 'dm') return;
-        if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("You don\'t have enoug powah to run this command");
+        if (!message.member.hasPermission("MANAGE_ROLES") || message.author.id != ownerID) return message.channel.send("You don\'t have enoug powah to run this command");
 
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
