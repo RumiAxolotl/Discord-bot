@@ -7,7 +7,7 @@ module.exports = {
         let channel = client.channels.cache.get(config.logcomment);
         if (message.author.bot) return;
         const embed = new Discord.MessageEmbed();
-        embed.setFooter(`UserID: ${message.author.id}`)
+        embed.setFooter(`UserID: ${message.author.username}`)
             .setTimestamp()
             .setDescription(message.content.slice(10))
             .setTitle("**COMMENTS**")
