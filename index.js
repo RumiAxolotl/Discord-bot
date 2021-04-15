@@ -35,8 +35,6 @@ for (const file of eventFiles) {
     }
 }
 
-client.snipes = new Discord.Collection();
-
 
 client.on("error", console.error);
 
