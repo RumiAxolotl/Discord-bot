@@ -7,7 +7,7 @@ module.exports = {
         if (!msg) return await message.channel.send({
             embed: {
                 color: 16734039,
-                description: "You cant slap yourself!"
+                description: "Nothing to snipe!"
             }
         })
         const embed = new Discord.MessageEmbed()
