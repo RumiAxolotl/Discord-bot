@@ -13,5 +13,6 @@ module.exports = {
             .setTitle("**COMMENTS**")
             .setColor("RANDOM");
         channel.send(embed);
+        message.delete;
     }
 }
