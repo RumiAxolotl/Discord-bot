@@ -14,11 +14,15 @@ module.exports = {
             .setTitle("**COMMENTS**")
             .setColor("RANDOM");
         channel.send(embed);
-        await message.reply({
+        await message.channel.send({
             embed: {
                 color: 5767167,
-                description: "You just sent a comment to my master, he will reply you soon!"
+                description: `${message.author} ,you just sent a comment to my master, he will reply you soon!`
             }
+        }).then((sent) => {
+            setTimeout(function () {
+                sent.delete();
+            }, 2500);
         });
     }
 }
