@@ -39,6 +39,14 @@ for (const file of eventFiles) {
 client.on("error", console.error);
 
 
+client.once('reconnecting', () => {
+    console.log('Reconnecting!');
+});
+
+client.once('disconnect', () => {
+    console.log('Disconnect!');
+});
+
 
 client.on("message", async message => {
 
