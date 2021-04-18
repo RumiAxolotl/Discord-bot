@@ -36,18 +36,7 @@ for (const file of eventFiles) {
 }
 
 
-client.queue = new Map();
-
 client.on("error", console.error);
-
-
-client.once('reconnecting', () => {
-    console.log('Reconnecting!');
-});
-
-client.once('disconnect', () => {
-    console.log('Disconnect!');
-});
 
 
 client.on("message", async message => {
