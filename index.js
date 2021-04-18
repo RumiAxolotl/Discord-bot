@@ -36,6 +36,8 @@ for (const file of eventFiles) {
 }
 
 
+client.queue = new Map();
+
 client.on("error", console.error);
 
 
