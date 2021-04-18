@@ -4,6 +4,7 @@ module.exports = {
     name: "comment",
     description: "receive comments about bot and code",
     async run(client, message, args) {
+        message.delete();
         let channel = client.channels.cache.get(config.logcomment);
         if (message.author.bot) return;
         const embed = new Discord.MessageEmbed();
@@ -13,6 +14,11 @@ module.exports = {
             .setTitle("**COMMENTS**")
             .setColor("RANDOM");
         channel.send(embed);
-        message.delete;
+        await message.reply({
+            embed: {
+                color: 5767167,
+                description: "You just sent a comment to my master, he will reply you soon!"
+            }
+        });
     }
 }
