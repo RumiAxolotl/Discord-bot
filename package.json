@@ -17,6 +17,7 @@
     "ms": "^2.1.3",
     "superagent": "^6.1.0",
     "twemoji-parser": "^13.0.0",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "ytdl-core": "^4.5.0"
   }
 }
