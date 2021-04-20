@@ -22,7 +22,7 @@ module.exports = {
                 description: "Please mention the role you want to add!!"
             }
         });
-        else if (member.roles.cache.has(role)) return message.channel.send({
+        else if (member.roles.cache.has(role.id)) return message.channel.send({
             embed: {
                 color: 16734039,
                 description: "The member already has the role!!"
