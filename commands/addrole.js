@@ -15,14 +15,14 @@ module.exports = {
                 description: "Please mention someone you want to add role!!"
             }
         });
-        let role = message.mentions.roles.first() || message.guilds.role.cache.get(args[0]);
+        let role = message.mentions.roles.first() || message.guilds.role.cache.get(args[1]);
         if (!role) return message.channel.send({
             embed: {
                 color: 16734039,
                 description: "Please mention the role you want to add!!"
             }
         });
-        else if (member.roles.cache.has(role.id)) return message.channel.send({
+        else if (member.roles.cache.has(role)) return message.channel.send({
             embed: {
                 color: 16734039,
                 description: "The member already has the role!!"
