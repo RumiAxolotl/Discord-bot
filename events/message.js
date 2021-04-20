@@ -1,6 +1,7 @@
 module.exports = {
     name: 'message',
     execute(message) {
-        if (message.content.includes("Axo")) return message.channel.send("Ông trùm Coder, Thiên tài tin học, Hacker bẩm sinh, Vua của bot")
+        if (message.content.includes("<@!443728905908649985"))
+            return message.reply("Don't mention my master, please send message with `d*comment + <content>` and my master will reply you!");
     }
 }
