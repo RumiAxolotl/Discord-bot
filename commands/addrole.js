@@ -22,12 +22,6 @@ module.exports = {
                 description: "Please mention the role you want to add!!"
             }
         });
-        else if (member.roles.cache.has(role.id)) return message.channel.send({
-            embed: {
-                color: 16734039,
-                description: "The member already has the role!!"
-            }
-        });
         await member.roles.add(role);
         const embed = new Disord.MessageEmbed();
         embed.setTitle("**ADDROLE**")
