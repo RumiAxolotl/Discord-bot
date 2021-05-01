@@ -15,9 +15,6 @@ const axios = require('axios');
 let prefix = (config.default_prefix);
 
 
-client.snipes = new Discord.Collection();
-
-
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
