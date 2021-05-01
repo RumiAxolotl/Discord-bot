@@ -9,7 +9,7 @@ module.exports.run = async (client, message) => {
         .setTimestamp();
     message.channel.send(embed);
 }
-module.exports = {
-    name: "resetcfs",
-    description: "reset cfs count to 0",
+module.exports.config = {
+    name: "snipe",
+    description: "GOT SNIPE",
 }
