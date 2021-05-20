@@ -12,7 +12,7 @@ const config = require('./config.json');
 
 const axios = require('axios');
 
-let prefix = (config.default_prefix);
+let prefix = ("d*","D*");
 
 
 client.commands = new Discord.Collection();
