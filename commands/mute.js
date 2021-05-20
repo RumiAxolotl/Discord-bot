@@ -5,33 +5,19 @@ module.exports = {
     description: "Mute a member from your server",
 
     async run(client, message, args) {
-        if (message.channel.type === 'dm') return;
+        if(message.channel.type === 'dm') return;
         if (!message.member.hasPermission("MANAGE_ROLES") && message.author.id != ownerID) return message.channel.send("You don\'t have enoug powah to run this command");
 
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
-        if (!user) message.channel.send("This ducky can't be found anywhere in this server");
+        if(!user) message.channel.send("This ducky can't be found anywhere in this server");
 
-        if (user.id === message.author.id) return message.channel.send("You cannot mute yourself, stupid duck");
+        if(user.id === message.author.id) return message.channel.send("You cannot mute yourself, stupid duck");
 
         let role = message.guild.roles.cache.find(x => x.name === "Muted");
 
-        if (!role)
-            try {
-                role = await message.guild.createRole({
-                    name: "Muted",
-                    color: "#000000",
-                    permissions: []
-                })
-                message.guild.channels.forEach(async (channel, id) => {
-                    await channel.overwritePermissions(role, {
-                        SEND_MESSAGES: false,
-                        ADD_REACTIONS: false
-                    });
-                });
-            } catch (e) {
-                console.log(e.stack);
-            }    
+        if(!role) return message.channel.send("Cannot find the muted role, quack!");
+
         let reason = args.slice(1).join(" ");
         if(!reason) reason = "Unspecified"
 
