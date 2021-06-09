@@ -11,7 +11,6 @@ module.exports = {
             .setColor("RANDOM")
             .setImage(message.guild.iconURL)
             .setTitle("Server Info")
-            .setTimestamp()
             .addField("**Owner:**", `${message.guild.owner}`, true)
             .addField("**Location:**", `${message.guild.region}`, true)
             .addField("**Created At:**", `${message.guild.createdAt.toLocaleString()}`, true)
@@ -19,7 +18,8 @@ module.exports = {
             .addField("**Emoji Count:**", `${message.guild.emojis.cache.size}`, true)
             .addField("**Roles Count:**", `${message.guild.roles.cache.size}`, true)
             .addField("**Tier Boots:**", `${message.guild.premiumTier}`, true)
-            .addField("**Number of Boosts:**", `${message.guild.premiumSubscriptionCount}`, true);
+            .addField("**Number of Boosts:**", `${message.guild.premiumSubscriptionCount}`, true)
+            .setTimestamp();
         message.channel.send(embed)
     }
 }
