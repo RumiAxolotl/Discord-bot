@@ -12,7 +12,6 @@ module.exports = {
             .setImage(message.guild.iconURL)
             .setTitle("Server Info")
             .setTimestamp()
-            .setThumbnail(`${message.guild.iconURL()}`)
             .addField("**Owner:**", `${message.guild.owner}`, true)
             .addField("**Location:**", `${message.guild.region}`, true)
             .addField("**Created At:**", `${message.guild.createdAt.toLocaleString()}`, true)
