@@ -7,7 +7,7 @@ module.exports = {
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
-        let embed = new Discord.MessageEmbed()
+        const embed = new Discord.MessageEmbed()
             .setColor("RANDOM")
             .setImage(message.guild.iconURL)
             .setTitle("Server Info")
