@@ -19,9 +19,7 @@ module.exports = {
             .addField("**Emoji Count:**", `${message.guild.emojis.cache.size}`, true)
             .addField("**Roles Count:**", `${message.guild.roles.cache.size}`, true)
             .addField("**Tier Boots:**", `${message.guild.premiumTier}`, true)
-            .addField("**Number of Boosts:**", `${message.guild.premiumSubscriptionCount}`, true)
-            .setTimestamp()
-            .setThumbnail(`${message.guild.iconURL()}`);
+            .addField("**Number of Boosts:**", `${message.guild.premiumSubscriptionCount}`, true);
         message.channel.send(embed)
     }
 }
