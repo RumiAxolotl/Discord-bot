@@ -8,7 +8,7 @@ module.exports = {
     if(message.channel.type === 'dm') return;
         let member = message.mentions.users.first() || message.author
 
-        let avatar = member.displayAvatarURL({size: 1024})
+        let avatar = member.displayAvatarURL({dynamic:true, size: 4096})
 
 
         const embed = new Discord.MessageEmbed()
