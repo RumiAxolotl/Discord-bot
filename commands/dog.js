@@ -1,24 +1,17 @@
 const Discord = require('discord.js');
-const superagent = require('superagent');
+const axios = require('axios');
 module.exports = {
     name: "dog",
 
     async run(client, message, args) {
         message.delete();
-        superagent.get('https://nekos.life/api/v2/img/woof')
-            .end((err, response) => {
-                const embed = new Discord.MessageEmbed()
-                    .setTitle("Random dog")
-                    .setImage(response.body.url)
-                    .setColor("RANDOM")
-                    .setFooter(`woof`)
-                    .setURL(response.body.url);
-                message.channel.send(embed);
-            }).catch((err) => message.channel.send({
-                embed: {
-                    color: 16734039,
-                    description: "Something went wrong... :cry:"
-                }
-            }));
+        const res = await axios.get('https://nekos.life/api/v2/img/woof')
+        const embed = new Discord.MessageEmbed()
+            .setTitle("Random dog")
+            .setImage(res.data.url)
+            .setColor("RANDOM")
+            .setFooter(`woof!!`)
+            .setURL(res.data.url);
+        message.channel.send({ embeds: [embed] });
     }
 }

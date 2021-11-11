@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 module.exports = {
     name: "ping",
-    description: "test command",
+    description: "show ping command",
 
     async run(client, message, args) {
 
@@ -13,6 +13,7 @@ module.exports = {
             .setDescription(`📡 ${client.ws.ping} ms`);
 
 
-        message.channel.send(ping);
+        message.channel.send({ embeds: [ping] });
+        console.log(`${message.author.username}#${message.author.discriminator} used Ping command`)
     }
 }

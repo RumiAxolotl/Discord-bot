@@ -7,12 +7,12 @@ module.exports = {
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
         if (message.author.bot) return;
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .setDescription("I'm in " + `${client.guilds.size}` + " servers!")
+            .setDescription("I'm in " + `${client.guilds.cache.size}` + " servers!")
             .setTimestamp()
             .setFooter(message.author.username, message.author.avatarURL);
-        message.channel.send(embed);
-        console.log('Someone Executed The Check Server Size Command(s)')
+        message.channel.send({ embeds: [embed] });
+        console.log(`${message.author.username}#${message.author.discriminator} used Servercount command`)
     }
 }

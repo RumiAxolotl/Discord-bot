@@ -7,12 +7,13 @@ module.exports = {
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
+        const serverOwner = await message.guild.fetchOwner();
+
         const embed = new Discord.MessageEmbed()
             .setColor("RANDOM")
             .setImage(message.guild.iconURL)
             .setTitle("Server Info")
-            .addField("**Owner:**", `${message.guild.owner}`, true)
-            .addField("**Location:**", `${message.guild.region}`, true)
+            .addField("**Owner:**", `${serverOwner}`, true)
             .addField("**Created At:**", `${message.guild.createdAt.toLocaleString()}`, true)
             .addField("**Member Count:**", `${message.guild.memberCount}`, true)
             .addField("**Emoji Count:**", `${message.guild.emojis.cache.size}`, true)
@@ -20,6 +21,7 @@ module.exports = {
             .addField("**Tier Boots:**", `${message.guild.premiumTier}`, true)
             .addField("**Number of Boosts:**", `${message.guild.premiumSubscriptionCount}`, true)
             .setTimestamp();
-        message.channel.send(embed)
+        message.channel.send({ embeds: [embed] });
+        console.log(`${message.author.username}#${message.author.discriminator} used Serverinfo command`)
     }
 }

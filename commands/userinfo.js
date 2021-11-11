@@ -4,7 +4,7 @@ module.exports = {
     desciption: "get infos of user",
 
 
-  async  run(client, message, args) {
+    async run(client, message, args) {
         //check if more than 1 user is mentioned
         if (args.length > 1) return message.channel.send('Only mention one user!');
 
@@ -20,7 +20,7 @@ module.exports = {
             if (member) {
                 let embed = new Discord.MessageEmbed()
                     .setColor("RANDOM")
-                    .setTitle("User Info")
+                    .setTitle(`${member.user.username}'s Info`)
                     .setThumbnail(member.user.displayAvatarURL())
                     .addField("**Username:**", `${member.user.username}`, true)
                     .addField("**Discriminator:**", `#${member.user.discriminator}`, true)
@@ -30,10 +30,11 @@ module.exports = {
                     .setDescription(`${member.roles.cache.map(role => role.toString()).join(' ')}`)
                     .setTimestamp()
 
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
             } else {
                 message.channel.send(`Could not find that member`); //send a message to the channel if the user doesn't exist
             }
         }
+        console.log(`${message.author.username}#${message.author.discriminator} used Userinfo command`)
     }
 }

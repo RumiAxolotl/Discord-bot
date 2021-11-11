@@ -1,11 +1,11 @@
 const { MessageEmbed } = require("discord.js");
-const {default_prefix} = require("../config.json")
+const { default_prefix } = require("../config.json")
 const { ownerID } = require("../config.json");
 module.exports = {
     name: "role",
     description: "A role utility command",
-    async run (client, message, args){
-        if (!message.member.permissions.has("MANAGE_ROLES") && message.author.id != ownerID)
+    async run(client, message, args) {
+        if (!message.member.permissionsIn(message.channel).has("MANAGE_ROLES") && message.author.id != ownerID)
             return message.channel.send(
                 `You don't have enough powah to use this command, ${message.author.username}`
             );
@@ -37,18 +37,15 @@ module.exports = {
                 );
             rName = rName.replace(`${rColor}`, ``);
             let rNew = await message.guild.roles.create({
-                data: {
-                    name: rName,
-                    color: rColor,
-                },
+                name: `${rName}`, color: `${rColor}`, reason: `Role create command`
             });
             const Embed = new MessageEmbed()
                 .setTitle(`New role!`)
                 .setDescription(
-                    `**${message.author.username} has created the role ***"${rName}"\n**Its Hex Color Code: **${rColor}\n**Its ID: **${rNew.id}`
+                    `**${message.author.username} has created the role **"${rName}"\n**Its Hex Color Code: **${rColor}\n**Its ID: **${rNew.id}`
                 )
                 .setColor(rColor);
-            message.channel.send(Embed);
+            message.channel.send({ embeds: [Embed] });
         } else if (args[0].toLowerCase() == "delete") {
             let roleDelete =
                 message.guild.roles.cache.get(args[1]) ||
@@ -64,7 +61,7 @@ module.exports = {
                 .setDescription(
                     `**${message.author.username} has deleted the role **"${roleDelete.name}"\n**Its ID: **${roleDelete.id}\n**Its Hex Color Code: **${roleDelete.color}`
                 );
-            message.channel.send(Embed1);
+            message.channel.send({ embeds: [Embed1] });
         }
     }
 }

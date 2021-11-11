@@ -1,42 +1,25 @@
 const Discord = require('discord.js');
-const superagent = require('superagent');
+const axios = require('axios');
 module.exports = {
     name: "slap",
-    description: "slap someone",
+    description: "Hug someone",
 
     async run(client, message, args) {
         message.delete();
         const user = message.mentions.users.first();
-        if (!user) return message.channel.send({
-            embed: {
-                color: 16734039,
-                description: "You must mention someone to slap!"
-            }
-        });
-
+        if (!user)
+            return message.channel.send("You must mention someone to slap!")
         if (message.author === user) {
-            return await message.channel.send({
-                embed: {
-                    color: 16734039,
-                    description: "You cant slap yourself!"
-                }
-            })
+            return await message.channel.send("You cant slap yourself!")
         }
-        superagent.get('https://nekos.life/api/v2/img/slap')
-            .end((err, response) => {
-                const embed = new Discord.MessageEmbed()
-                    .setTitle(user.username + " just got slapped by " + message.author.username)
-                    .setImage(response.body.url)
-                    .setColor(`RANDOM`)
-                    .setDescription((user.toString() + " got slapped by " + message.author.toString()))
-                    .setFooter(`That must hurt ._.`)
-                    .setURL(response.body.url);
-                message.channel.send(embed);
-            }).catch((err) => message.channel.send({
-                embed: {
-                    color: 16734039,
-                    description: "Something went wrong... :cry:"
-                }
-            }));
+        const res = await axios.get(`https://nekos.life/api/v2/img/slap`);
+        const embed = new Discord.MessageEmbed()
+            .setTitle(user.username + " just got slapped by " + message.author.username)
+            .setImage(res.data.url)
+            .setColor("RANDOM")
+            .setDescription((user.toString() + " got slapped by " + message.author.toString()))
+            .setFooter(`That must hurt ._.`)
+            .setURL(res.data.url);
+        message.channel.send({ embeds: [embed] });
     }
 }
