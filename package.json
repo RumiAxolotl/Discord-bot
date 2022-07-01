@@ -4,7 +4,8 @@
   "description": "bruh",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "module-install": "npm install axios common-tags discord.js fs mathjs superagent weather-js  --save"
   },
   "author": "rumi axolotl",
   "license": "ISC",
