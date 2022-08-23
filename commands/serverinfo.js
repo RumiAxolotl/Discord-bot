@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
-const { stripIndents } = require("common-tags");
+const {
+    stripIndents
+} = require("common-tags");
 
 module.exports = {
     name: "serverinfo",
@@ -13,15 +15,40 @@ module.exports = {
             .setColor("RANDOM")
             .setImage(message.guild.iconURL)
             .setTitle("Server Info")
-            .addField("**Owner:**", `${serverOwner}`, true)
-            .addField("**Created At:**", `${message.guild.createdAt.toLocaleString()}`, true)
-            .addField("**Member Count:**", `${message.guild.memberCount}`, true)
-            .addField("**Emoji Count:**", `${message.guild.emojis.cache.size}`, true)
-            .addField("**Roles Count:**", `${message.guild.roles.cache.size}`, true)
-            .addField("**Tier Boots:**", `${message.guild.premiumTier}`, true)
-            .addField("**Number of Boosts:**", `${message.guild.premiumSubscriptionCount}`, true)
+            .addFields({
+                    name: "**Owner:**",
+                    value: `${serverOwner}`,
+                    inline: true
+                }, {
+                    name: "**Created At:**",
+                    value: `${message.guild.createdAt.toLocaleString()}`,
+                    inline: true
+                }, {
+                    name: "**Member Count:**",
+                    value: `${message.guild.memberCount}`,
+                    inline: true
+                }, {
+                    name: "**Emoji Count:**",
+                    value: `${message.guild.emojis.cache.size}`,
+                    inline: true
+                }, {
+                    name: "**Roles Count:**",
+                    value: `${message.guild.roles.cache.size}`,
+                    inline: true
+                }, {
+                    name: "**Tier Boots:**",
+                    value: `${message.guild.premiumTier}`,
+                    inline: true
+                }, {
+                    name: "**Number of Boosts:**",
+                    value: `${message.guild.premiumSubscriptionCount}`,
+                    inline: true
+                },
+            )
             .setTimestamp();
-        message.channel.send({ embeds: [embed] });
+        message.channel.send({
+            embeds: [embed]
+        });
         console.log(`${message.author.username}#${message.author.discriminator} used Serverinfo command`)
     }
 }
