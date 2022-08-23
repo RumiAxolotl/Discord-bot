@@ -18,7 +18,9 @@ module.exports = {
             .setImage(res.data.url)
             .setColor("RANDOM")
             .setDescription((user.toString() + " got a hug from " + message.author.toString()))
-            .setFooter(`this is so cute`)
+            .setFooter({
+                text: `this is so cute`
+            })
             .setURL(res.data.url);
         message.channel.send({embeds: [embed]});
     }
