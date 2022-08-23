@@ -29,7 +29,9 @@ module.exports = {
             .addField('Reason', `${reason}`)
             .addField('Muted by', `${message.author}`)
             .addField('Reason', `${reason}`)
-            .setFooter('Time muted: ')
+            .setFooter({
+                text: 'Time muted '
+            })
             .setTimestamp()
 
         await message.channel.send({ embeds: [mutembed] });
