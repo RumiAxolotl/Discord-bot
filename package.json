@@ -12,13 +12,14 @@
   "dependencies": {
     "axios": "^0.24.0",
     "common-tags": "^1.8.2",
-    "discord.js": "^13.8.1",
+    "cron": "^2.1.0",
+    "discord.js": "^13.10.3",
     "fs": "^0.0.1-security",
     "mathjs": "^9.5.2",
     "superagent": "^6.1.0",
     "weather-js": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.18"
+    "nodemon": "^2.0.19"
   }
 }
