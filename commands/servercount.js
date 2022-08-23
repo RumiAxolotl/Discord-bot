@@ -11,8 +11,13 @@ module.exports = {
             .setColor("RANDOM")
             .setDescription("I'm in " + `${client.guilds.cache.size}` + " servers!")
             .setTimestamp()
-            .setFooter(message.author.username, message.author.avatarURL);
-        message.channel.send({ embeds: [embed] });
+            .setFooter({
+                text: message.author.username,
+                iconURL: message.author.avatarURL
+            });
+        message.channel.send({
+            embeds: [embed]
+        });
         console.log(`${message.author.username}#${message.author.discriminator} used Servercount command`)
     }
 }
