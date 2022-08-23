@@ -91,11 +91,15 @@ let schedule = new cron.CronJob('00 0,30 7-22 * * *', () => {
         embeds: [Embed]
     })
 },
-    timezone: "Asia/Ho_Chi_Minh"
+    {
+        scheduled: true,
+        timezone: "Asia/Ho_Chi_Minh"
+    }
+    
 )
 
 
-schedule.start();
+
 
 
 client.login(config.token);
