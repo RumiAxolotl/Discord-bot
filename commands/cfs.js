@@ -33,11 +33,6 @@ module.exports = {
                         cfsChannel.send(attachment);
                 });
             }
-
-            cfsChannel.send(embed);
-            fs.writeFileSync('./count.json', JSON.stringify({
-                count: count
-            }));
         }
     }
 }
