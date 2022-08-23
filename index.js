@@ -89,9 +89,10 @@ let schedule = new cron.CronJob('00 0,30 7-22 * * *', () => {
     });
     member2.send({
         embeds: [Embed]
-    });
-
-})
+    })
+},
+    timezone: "Asia/Ho_Chi_Minh"
+)
 
 
 schedule.start();
