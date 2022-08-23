@@ -30,6 +30,5 @@ module.exports = {
                 }, 2500);
             });
         }
-        console.log(`${message.author.username}#${message.author.discriminator} used Clear command`)
     }
 }
