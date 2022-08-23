@@ -101,7 +101,7 @@ let schedule = new cron.CronJob('00 0,30 * * * *', () => {
 })
 
 
-schedule1.start();
+schedule.start();
 
 
 client.login(config.token);
