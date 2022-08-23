@@ -77,11 +77,9 @@ let announce =
 let Embed = new Discord.MessageEmbed()
     .setTitle(`Nhắc nhở uống nước!`)
     .setColor(`RANDOM`)
+    .setDescription(announces)
     .setThumbnail(`https://i.pinimg.com/originals/6c/55/6d/6c556d5f1b8a7364f548e98b6230ac54.jpg`)
-    .setTimestamp()
-   .setDescription(`${announce}`)
-    
-
+    .setTimestamp();
 
 let schedule = new cron.CronJob('00 0,30 * * * *', () => {
     let member1 = client.users.cache.get('968492300311343164');
@@ -91,7 +89,7 @@ let schedule = new cron.CronJob('00 0,30 * * * *', () => {
     });
     member2.send({
         embeds: [Embed]
-    })
+    });
 
 })
 
