@@ -68,7 +68,7 @@ let announces = [
     "Để giữ sức khỏe, nhớ uống nước nha OwO",
     "My sweetie! Remember to drink water!",
     "Do you love me? Maybe not! But remember to drink water!",
-    "'Người ta sống không riêng bởi bánh', tất nhiên là cần uống nước đầy đủ nữa nhé!"
+    "Người ta sống không riêng bởi bánh, tất nhiên là cần uống nước đầy đủ nữa nhé!"
 ];
 
 let announce =
