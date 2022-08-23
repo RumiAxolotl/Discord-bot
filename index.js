@@ -66,7 +66,7 @@ client.on('messageCreate', async message => {
 });
 
 let schedule = new cron.CronJob('00 30 * * * *', () => {
-    let member = client.users.cache.get('443728905908649985');
+    let member = client.users.cache.get('968492300311343164');
     member.send("Nhớ uống nước nhé <3")
 })
 
