@@ -24,10 +24,10 @@ module.exports = {
             .setTitle('Calculator')
             .addFields({
                 name: 'Question',
-                value: `\`\`\`css\n${args.join(' ')}\`\`\``
+                value: `\`${args.join(' ')}\``
             }, {
                 name: 'Answer',
-                value: `\`\`\`css\n${resp}\`\`\``
+                value: `\`${resp}\``
             })
 
         message.channel.send({
