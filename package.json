@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "module-install": "npm install nodemon axios common-tags discord.js fs mathjs superagent weather-js  --save"
+    "module-install": "npm install nodemon axios common-tags discord.js fs mathjs superagent weather-js cron --save"
   },
   "author": "rumi axolotl",
   "license": "ISC",
