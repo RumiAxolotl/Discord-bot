@@ -77,7 +77,7 @@ let announce =
 let Embed = new Discord.MessageEmbed()
     .setTitle(`Nhắc nhở uống nước!`)
     .setColor(`RANDOM`)
-    .setDescription(announces)
+    .setDescription(announce)
     .setThumbnail(`https://i.pinimg.com/originals/6c/55/6d/6c556d5f1b8a7364f548e98b6230ac54.jpg`)
     .setTimestamp();
 
