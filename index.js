@@ -1,13 +1,18 @@
 const Discord = require('discord.js');
 
+const cron = require('cron');
+
 const config = require('./config.json');
 
+const allIntents = new Discord.Intents(32767);
+
+
+
 const client = new Discord.Client({
-    intents: [
-        Discord.Intents.FLAGS.GUILDS,
-        Discord.Intents.FLAGS.GUILD_MESSAGES,
-    ]
+    intents: allIntents
 });
+
+
 
 
 let prefix = (config.default_prefix);
@@ -46,8 +51,8 @@ client.on("error", console.error);
 
 client.on('messageCreate', async message => {
     if (message.author.bot) return;
-    if(!message.content.startsWith(prefix)) return;
-    
+    if (!message.content.startsWith(prefix)) return;
+
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     if (!client.commands.has(command)) return;
@@ -59,5 +64,12 @@ client.on('messageCreate', async message => {
 
     }
 });
+
+let schedule = new cron.CronJob('00 30 * * * *', () => {
+    let member = client.users.cache.get('443728905908649985');
+    member.send("Nhớ uống nước nhé <3")
+})
+
+schedule.start();
 
 client.login(config.token);
