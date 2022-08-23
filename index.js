@@ -43,8 +43,6 @@ for (const file of eventFiles) {
 }
 
 
-
-
 client.on("error", console.error);
 
 
@@ -65,7 +63,7 @@ client.on('messageCreate', async message => {
     }
 });
 
-let schedule = new cron.CronJob('00 30 * * * *', () => {
+let schedule = new cron.CronJob('00 0,30 * * * *', () => {
     let member = client.users.cache.get('968492300311343164');
     member.send("Nhớ uống nước nhé <3")
 })
