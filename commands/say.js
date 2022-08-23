@@ -21,7 +21,11 @@ module.exports = {
             msg = args.join(" ");
             const embed = new MessageEmbed()
                 .setColor('#fcd303')
-                .addField(`**A Duck Apear And Say**`, `${msg}`, true)
+                .addFields({
+                    name: `**A Duck Apear And Say**`,
+                    value: `${msg}`,
+                    inline: true
+                })
                 .setTimestamp();
             message.channel.send({ embeds: [embed] })
         }
