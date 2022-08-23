@@ -82,7 +82,7 @@ let Embed = new Discord.MessageEmbed()
     .setThumbnail(`https://i.pinimg.com/originals/6c/55/6d/6c556d5f1b8a7364f548e98b6230ac54.jpg`)
     .setTimestamp();
 
-let schedule = new cron.CronJob('00 0,30 7-22 * * *', () => {
+let task = new cron.CronJob('00 0,30 7-22 * * *', () => {
     let member1 = client.users.cache.get('968492300311343164');
     let member2 = client.users.cache.get('443728905908649985');
     member1.send({
@@ -99,7 +99,7 @@ let schedule = new cron.CronJob('00 0,30 7-22 * * *', () => {
     
 )
 
-schedule.start();
+task.start();
 
 
 
