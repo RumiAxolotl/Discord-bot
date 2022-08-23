@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
-const { default_prefix } = require("../config.json");
+const {
+    default_prefix
+} = require("../config.json");
 
 module.exports = {
     name: "8ball",
@@ -40,12 +42,19 @@ module.exports = {
                 responses[Math.floor(Math.random() * responses.length - 1)];
             let Embed = new Discord.MessageEmbed()
                 .setTitle(`8Ball!`)
-                .addField(`**Your Question:**`, `${question}`)
-                .addField(`**The Duck Seerer Reply:**`, `${response} :duck:`)
+                .addFields({
+                    name: `**Your Question:**`,
+                    value: `${question}`
+                }, {
+                    name: `** The Duck Seerer Reply: ** `,
+                    value: `${response} :duck:`
+                })
                 .setColor(`RANDOM`)
                 .setThumbnail(`https://i.pinimg.com/originals/d7/36/6e/d7366eb0b396c3ed7a8d96e529b94ba4.jpg`)
                 .setTimestamp();
-            message.channel.send({embeds: [Embed]});
+            message.channel.send({
+                embeds: [Embed]
+            });
         }
     }
 }
