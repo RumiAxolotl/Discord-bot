@@ -79,11 +79,7 @@ let Embed = new Discord.MessageEmbed()
     .setColor(`RANDOM`)
     .setThumbnail(`https://i.pinimg.com/originals/d7/36/6e/d7366eb0b396c3ed7a8d96e529b94ba4.jpg`)
     .setTimestamp()
-    .addFields(
-        {
-            name: '\u200B', value: `${announce}`
-        },
-    );
+   .setDescription(`${announce}`)
     
 
 
