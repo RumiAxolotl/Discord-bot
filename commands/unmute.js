@@ -20,7 +20,7 @@ module.exports = {
             .setTitle('Member Unmuted')
             .setColor('#00f504')
             .setDescription(`${user} has been unmuted!`)
-            .setFooter('Time unmuted ')
+            .setFooter({ text: 'Time unmuted ' })
             .setTimestamp()
 
         message.channel.send({ embeds: [Unmutembed] });
