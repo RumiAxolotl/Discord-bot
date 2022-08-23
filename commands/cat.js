@@ -10,8 +10,12 @@ module.exports = {
             .setTitle("Random cat")
             .setImage(res.data.url)
             .setColor(`RANDOM`)
-            .setFooter(`meow~~`)
+            .setFooter({
+                text: `meow~~`
+            })
             .setURL(res.data.url);
-        message.channel.send({ embeds: [embed] });
+        message.channel.send({
+            embeds: [embed]
+        });
     }
 }
