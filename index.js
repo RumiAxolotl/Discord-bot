@@ -93,13 +93,12 @@ let schedule = new cron.CronJob('00 0,30 7-22 * * *', () => {
     })
 },
     {
-        scheduled: true,
         timezone: "Asia/Ho_Chi_Minh"
     }
     
 )
 
-
+schedule.start();
 
 
 
