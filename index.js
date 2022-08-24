@@ -64,17 +64,7 @@ client.on('messageCreate', async message => {
 });
 
 
-
-
-
-
-
-
-
-
-
 let task = new cron.CronJob('00 0,30 * * * *', () => {
-
     let announces = [
         "Nhớ uống nước đầy đủ nhé <3",
         "Để giữ sức khỏe, nhớ uống nước nha OwO",
