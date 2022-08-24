@@ -14,6 +14,5 @@ module.exports = {
 
 
         message.channel.send({ embeds: [ping] });
-        console.log(`${message.author.username}#${message.author.discriminator} used Ping command`)
     }
 }
