@@ -70,26 +70,28 @@ client.on('messageCreate', async message => {
 
 
 
-let announces = [
-    "Nhớ uống nước đầy đủ nhé <3",
-    "Để giữ sức khỏe, nhớ uống nước nha OwO",
-    "My sweetie! Remember to drink water!",
-    "Do you love me? Maybe not! But remember to drink water!",
-    "Người ta sống không riêng bởi bánh, tất nhiên là cần uống nước đầy đủ nữa nhé!",
-    "Muốn có một ngày thành công hơn? Đừng quên uống nước đầy đủ!"
-];
 
-let announce =
-    announces[Math.floor(Math.random() * announces.length - 1)];
 
-let Embed = new Discord.MessageEmbed()
-    .setTitle(`Nhắc nhở uống nước!`)
-    .setColor(`RANDOM`)
-    .setDescription(announce)
-    .setThumbnail(`https://i.pinimg.com/originals/6c/55/6d/6c556d5f1b8a7364f548e98b6230ac54.jpg`)
-    .setTimestamp();
 
-let task = new cron.CronJob('00 0,30 7-22 * * *', () => {
+let task = new cron.CronJob('00 0,30 * * * *', () => {
+
+    let announces = [
+        "Nhớ uống nước đầy đủ nhé <3",
+        "Để giữ sức khỏe, nhớ uống nước nha OwO",
+        "My sweetie! Remember to drink water!",
+        "Do you love me? Maybe not! But remember to drink water!",
+        "Người ta sống không riêng bởi bánh, tất nhiên là cần uống nước đầy đủ nữa nhé!",
+        "Muốn có một ngày thành công hơn? Đừng quên uống nước đầy đủ!"
+    ];
+    let announce =
+        announces[Math.floor(Math.random() * announces.length - 1)];
+
+    let Embed = new Discord.MessageEmbed()
+        .setTitle(`Nhắc nhở uống nước!`)
+        .setColor(`RANDOM`)
+        .setDescription(announce)
+        .setThumbnail(`https://i.pinimg.com/originals/6c/55/6d/6c556d5f1b8a7364f548e98b6230ac54.jpg`)
+        .setTimestamp();
     let member1 = client.users.cache.get('968492300311343164');
     let member2 = client.users.cache.get('443728905908649985');
     member1.send({
@@ -98,8 +100,7 @@ let task = new cron.CronJob('00 0,30 7-22 * * *', () => {
     member2.send({
         embeds: [Embed]
     })
-}  
-)
+})
 
 task.start();
 
