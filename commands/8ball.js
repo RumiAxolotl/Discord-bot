@@ -26,7 +26,7 @@ module.exports = {
                 "Better not tell you now",
                 "Cannot predict now",
                 "Concentrate and ask again",
-                "Don’t count on it",
+                "Don't count on it",
                 "Most likely",
                 "My reply is NO",
                 "My sources say NO",
