@@ -3,18 +3,13 @@ const cron = require('cron');
 const fs = require('fs');
 
 const allIntents = new Discord.Intents(32767);
-
 const client = new Discord.Client({
     intents: allIntents
 });
 
-
 const config = require('./config.json');
 const waterannounce = require('./waterannounce.json');
 let prefix = (config.default_prefix);
-
-
-
 
 
 
@@ -24,8 +19,6 @@ for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
-
-
 client.events = new Discord.Collection();
 const eventFiles = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
@@ -36,16 +29,10 @@ for (const file of eventFiles) {
         client.on(event.name, (...args) => event.execute(...args, client));
     }
 }
-
-
 client.on("error", console.error);
-
-
-
 client.on('messageCreate', async message => {
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
-
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     if (!client.commands.has(command)) return;
@@ -59,9 +46,9 @@ client.on('messageCreate', async message => {
 });
 
 
+
+
 let task = new cron.CronJob('00 0,30 7-22 * * *', () => {
-
-
     waterannounce.members.forEach(function (member) {
         let announces = [
             "Nhớ uống nước đầy đủ nhé <3",
@@ -71,12 +58,11 @@ let task = new cron.CronJob('00 0,30 7-22 * * *', () => {
             "Người ta sống không riêng bởi bánh, tất nhiên là cần uống nước đầy đủ nữa nhé!",
             "Muốn có một ngày thành công hơn? Đừng quên uống nước đầy đủ!"
         ];
-
         let announce =
             announces[Math.floor(Math.random() * announces.length - 1)];
-        let getmember = client.users.cache.get(`${member.ID}`);
+        let getUser = client.users.cache.get(`${member.ID}`);
         let Embed = new Discord.MessageEmbed()
-            .setTitle(`Lời nhắc yêu thương gửi đến ${getmember.username} `)
+            .setTitle(`Lời nhắc yêu thương gửi đến ${getUser.username} `)
             .setColor(`RANDOM`)
             .setDescription(`${announce}`)
             .setThumbnail(`https://i.pinimg.com/originals/6c/55/6d/6c556d5f1b8a7364f548e98b6230ac54.jpg`)
@@ -84,8 +70,7 @@ let task = new cron.CronJob('00 0,30 7-22 * * *', () => {
                 text: `Những nhắc nhở yêu thương <3`
             })
             .setTimestamp();
-
-        getmember.send({
+        getUser.send({
             embeds: [Embed]
         });
     })
