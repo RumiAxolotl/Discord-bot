@@ -21,7 +21,7 @@ module.exports = {
             .setImage(res.data.url)
             .setColor("RANDOM")
             .setFooter({
-                text: `Tags: boobs `
+                text: `Tags: foxgirl `
             })
             .setURL(res.data.url);
         message.channel.send({
