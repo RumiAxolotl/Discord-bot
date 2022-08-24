@@ -12,6 +12,5 @@ module.exports = {
             .setTimestamp()
             .setThumbnail(`https://cdn.discordapp.com/icons/754326147566796811/148897d1d39622e4639cafa03b3d123a.png?size=4096`);
         message.channel.send({ embeds: [embed] });
-        console.log(`${message.author.username}#${message.author.discriminator} used Invite command`)
     }
 }
