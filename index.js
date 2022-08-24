@@ -1,23 +1,18 @@
 const Discord = require('discord.js');
-
 const cron = require('cron');
-
-const config = require('./config.json');
+const fs = require('fs');
 
 const allIntents = new Discord.Intents(32767);
-
-
 
 const client = new Discord.Client({
     intents: allIntents
 });
 
 
-
-
+const config = require('./config.json');
+const waterannounce = require('./waterannounce.json');
 let prefix = (config.default_prefix);
 
-const fs = require('fs');
 
 
 
@@ -74,21 +69,26 @@ let task = new cron.CronJob('00 0,30 * * * *', () => {
         "Người ta sống không riêng bởi bánh, tất nhiên là cần uống nước đầy đủ nữa nhé!",
         "Muốn có một ngày thành công hơn? Đừng quên uống nước đầy đủ!"
     ];
+
+
+
+
     let announce =
         announces[Math.floor(Math.random() * announces.length - 1)];
 
-    let Embed = new Discord.MessageEmbed()
-        .setTitle(`Nhắc nhở uống nước!`)
-        .setColor(`RANDOM`)
-        .setDescription(`${announce}`)
-        .setThumbnail(`https://i.pinimg.com/originals/6c/55/6d/6c556d5f1b8a7364f548e98b6230ac54.jpg`)
-    let member1 = client.users.cache.get('968492300311343164');
-    let member2 = client.users.cache.get('443728905908649985');
-    member1.send({
-        embeds: [Embed]
-    });
-    member2.send({
-        embeds: [Embed]
+    waterannounce.members.forEach(function (member) {
+        let getmember = client.users.cache.get(`${member.ID}`);
+        let Embed = new Discord.MessageEmbed()
+            .setTitle(`Lời nhắc yêu thương gửi đến ${getmember.username} `)
+            .setColor(`RANDOM`)
+            .setDescription(`${announce}`)
+            .setThumbnail(`https://i.pinimg.com/originals/6c/55/6d/6c556d5f1b8a7364f548e98b6230ac54.jpg`)
+            .setFooter({ text: `Những nhắc nhở yêu thương <3` })
+            .setTimestamp();
+        
+        getmember.send({
+            embeds: [Embed]
+        });
     })
 })
 
