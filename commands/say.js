@@ -26,7 +26,7 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setColor('#fcd303')
                 .addFields({
-                    name: `**A Duck Apear And Say**`,
+                    name: `**A Duck Appears And Say**`,
                     value: `${msg}`,
                     inline: true
                 })
