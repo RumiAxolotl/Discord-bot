@@ -59,7 +59,7 @@ client.on('messageCreate', async message => {
 });
 
 
-let task = new cron.CronJob('00 0,30 * * * *', () => {
+let task = new cron.CronJob('00 0,30 7-22 * * *', () => {
 
 
     waterannounce.members.forEach(function (member) {
