@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
-const { ownerID } = require("../config.json");
+const {
+    ownerID
+} = require("../config.json");
 
 module.exports = {
     name: "kick",
@@ -23,7 +25,9 @@ module.exports = {
 
         if (!KickReason) KickReason = 'Unspecified';
 
-        member.kick({ reason: KickReason })
+        member.kick({
+                reason: KickReason
+            })
             .catch(err => {
                 if (err) return message.channel.send('Something went wrong')
             });
@@ -32,14 +36,28 @@ module.exports = {
             .setTitle('Member Kicked')
             .setColor('#f50000')
             .setThumbnail(member.user.displayAvatarURL())
-            .addField('User Kicked', member, true)
-            .addField('Kicked by', message.author, true)
-            .addField('Reason', KickReason, true)
-            .setFooter('Time kicked', client.user.displayAvatarURL())
+            .addFields({
+                name: 'User Kicked',
+                value: `${member}`,
+                inline: true
+            }, {
+                name: 'Kicked by',
+                value: `${message.author}`,
+                inline: true
+            }, {
+                name: 'Reason',
+                value: `${KickReason}`,
+                inline: true
+            })
+            .setFooter({
+                text: 'Time kicked',
+                iconURL: `${client.user.displayAvatarURL()}`
+            })
             .setTimestamp()
 
-        message.channel.send({ embeds: [Kickembed] });
-        console.log(`${message.author.username}#${message.author.discriminator} used Kick command`)
+        message.channel.send({
+            embeds: [Kickembed]
+        });
 
 
     }
