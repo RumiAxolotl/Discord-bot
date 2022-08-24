@@ -35,6 +35,5 @@ module.exports = {
                 message.channel.send(`Could not find that member`); //send a message to the channel if the user doesn't exist
             }
         }
-        console.log(`${message.author.username}#${message.author.discriminator} used Userinfo command`)
     }
 }
