@@ -68,12 +68,7 @@ client.on('messageCreate', async message => {
                     .setTimestamp();
                 message.channel.send(embed);
             } catch (e) {
-                message.channel.send({
-                    embed: {
-                        color: 16734039,
-                        description: "Bot Is ERROR, Try Again Later!"
-                    }
-                }).then((sent) => {
+                message.channel.send("Bot Is ERROR, Try Again Later!").then((sent) => {
                     setTimeout(function () {
                         sent.delete();
                     }, 2500);
