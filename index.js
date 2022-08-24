@@ -70,8 +70,6 @@ client.on('messageCreate', async message => {
 
 
 
-
-
 let announces = [
     "Nhớ uống nước đầy đủ nhé <3",
     "Để giữ sức khỏe, nhớ uống nước nha OwO",
