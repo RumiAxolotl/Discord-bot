@@ -48,7 +48,7 @@ client.on('messageCreate', async message => {
 
 
 
-let task = new cron.CronJob('00 0,30 7-22 * * *', () => {
+let task = new cron.CronJob('00 0,30 * * * *', () => {
     waterannounce.members.forEach(function (member) {
         let announces = [
             "Nhớ uống nước đầy đủ nhé <3",
