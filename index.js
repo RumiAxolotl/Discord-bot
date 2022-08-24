@@ -91,7 +91,6 @@ let task = new cron.CronJob('00 0,30 * * * *', () => {
         .setColor(`RANDOM`)
         .setDescription(announce)
         .setThumbnail(`https://i.pinimg.com/originals/6c/55/6d/6c556d5f1b8a7364f548e98b6230ac54.jpg`)
-        .setTimestamp();
     let member1 = client.users.cache.get('968492300311343164');
     let member2 = client.users.cache.get('443728905908649985');
     member1.send({
