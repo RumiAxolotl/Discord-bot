@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
-const { ownerID } = require("../config.json");
+const {
+    ownerID
+} = require("../config.json");
 module.exports = {
     name: "mute",
     description: "Mute a member from your server",
@@ -14,7 +16,7 @@ module.exports = {
 
         if (user.id === message.author.id) return message.channel.send("You cannot mute yourself, stupid duck");
 
-        let role = message.guild.roles.cache.find(role => role.name.toLowerCase()=== "muted");
+        let role = message.guild.roles.cache.find(role => role.name.toLowerCase() === "muted");
 
         if (!role) return message.channel.send("Cannot find the muted role, quack!");
 
@@ -25,16 +27,27 @@ module.exports = {
         const mutembed = new Discord.MessageEmbed()
             .setTitle('Member Muted')
             .setColor('#f5f500')
-            .addField('User Muted', `${user}`)
-            .addField('Reason', `${reason}`)
-            .addField('Muted by', `${message.author}`)
-            .addField('Reason', `${reason}`)
+            .addFields({
+                    name: 'User Muted',
+                    value: `${user}`
+                }, {
+                    name: 'Reason',
+                    value: `${reason}`
+                }, {
+                    name: 'Muted by',
+                    value: `${message.author}`
+                },
+
+            )
             .setFooter({
-                text: 'Time muted '
+                text: 'Time muted ',
+                iconURL: `${client.user.displayAvatarURL()}`
             })
             .setTimestamp()
 
-        await message.channel.send({ embeds: [mutembed] });
+        await message.channel.send({
+            embeds: [mutembed]
+        });
         console.log(`${message.author.username}#${message.author.discriminator} used Mute command`)
     }
 }
