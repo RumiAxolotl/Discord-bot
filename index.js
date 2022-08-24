@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 
 const cron = require('cron');
 
+const axios = require('axios');
+
+const fs = require('fs');
+
 const config = require('./config.json');
 
 const allIntents = new Discord.Intents(32767);
@@ -17,7 +21,7 @@ const client = new Discord.Client({
 
 let prefix = (config.default_prefix);
 
-const fs = require('fs');
+
 
 
 
@@ -52,7 +56,7 @@ client.on('messageCreate', async message => {
     if (!message.content.startsWith(prefix)) {
         if (message.channel.id == '825682437861539850') {
             try {
-                const res = await axios.get(`http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=1&msg=${encodeURIComponent(message.content)}`);
+                const res = await axios.get(`http://api.brainshop.ai/get?bid=155428&key=aE6dItjROvW72dv8&uid=1&msg=${encodeURIComponent(message.content)})}`);
                 const embed = new Discord.MessageEmbed();
                 embed.setTitle(`**AI Ducky**`)
                     .setColor("RANDOM")
