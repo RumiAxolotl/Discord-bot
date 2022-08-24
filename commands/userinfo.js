@@ -14,7 +14,7 @@ module.exports = {
         //check if there is 1 argument
         if (args[0]) {
             //get the first user mentioned
-            let member = message.mentions.members.first();
+            let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
             //if the member exists create an embed with info about that user and send it to the channel
             if (member) {
