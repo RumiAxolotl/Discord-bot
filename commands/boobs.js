@@ -6,8 +6,6 @@ module.exports = {
 
     async run(client, message, args) {
         message.delete();
-        const user = message.mentions.users.first();
-        message.delete();
         if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send({
