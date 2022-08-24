@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
-const { ownerID } = require("../config.json");
+const {
+    ownerID
+} = require("../config.json");
 
 module.exports = {
     name: "ban",
@@ -23,7 +25,9 @@ module.exports = {
 
         if (!banReason) banReason = 'Unspecified';
 
-        member.ban({ reason: banReason })
+        member.ban({
+                reason: banReason
+            })
             .catch(err => {
                 if (err) return message.channel.send('Something went wrong')
             });
@@ -31,14 +35,27 @@ module.exports = {
         const banembed = new Discord.MessageEmbed()
             .setTitle('Member Banned')
             .setThumbnail(member.user.displayAvatarURL())
-            .addField('User Banned', `${member}`, true)
-            .addField('Banned by', `${message.author}`, true)
-            .addField('Reason', `${banReason}`, true)
-            .setFooter('Time banned', `${client.user.displayAvatarURL()}`)
+            .addFields({
+                name: 'User Banned',
+                value: `${member}`,
+                inline: true
+            }, {
+                name: 'Banned by',
+                value: `${message.author}`,
+                inline: true
+            }, {
+                name: 'Reason',
+                value: `${banReason}`,
+                inline: true
+            })
+            .setFooter({
+                text: 'Time banned',
+                iconURL: `${client.user.displayAvatarURL()}`
+            })
             .setTimestamp()
 
-        message.channel.send({ embeds: [banembed] });
-        console.log(`${message.author.username}#${message.author.discriminator} used Ban command`)
-
+        message.channel.send({
+            embeds: [banembed]
+        });
     }
 }
