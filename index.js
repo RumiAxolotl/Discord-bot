@@ -55,9 +55,9 @@ let task = new cron.CronJob("00 0,30 * * * *", () => {
             "Muốn có một ngày thành công hơn? Đừng quên uống nước đầy đủ nha!",
             "Này! Hôm nay đã uống đủ nước chưa đấy? Chưa thì lo mà uống đủ nước để giữ sức khỏe tốt nhé! Còn uống đủ nước rồi thì giữ thói quen uống đủ nước hằng ngày nhé! Luv U <3",
         ];
-        let announce = announces[Math.floor(Math.random() * announces.length - 1)];
+        let announce = announces[Math.floor(Math.random() * announces.length)];
         while (announce == undefined) {
-            announce = announces[Math.floor(Math.random() * announces.length - 1)];
+            announce = announces[Math.floor(Math.random() * announces.length)];
         }
         let getUser = client.users.cache.get(`${member.ID}`);
         let Embed = new Discord.MessageEmbed()
