@@ -18,7 +18,7 @@ module.exports = {
             .setImage(res.data.url)
             .setColor("RANDOM")
             .setDescription((user.toString() + " got slapped by " + message.author.toString()))
-            .setFooter({                    
+            .setFooter({
                 text: `That must hurt ._.`
             })
             .setURL(res.data.url);

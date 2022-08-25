@@ -26,8 +26,8 @@ module.exports = {
         if (!KickReason) KickReason = 'Unspecified';
 
         member.kick({
-                reason: KickReason
-            })
+            reason: KickReason
+        })
             .catch(err => {
                 if (err) return message.channel.send('Something went wrong')
             });

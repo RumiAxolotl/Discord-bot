@@ -12,7 +12,7 @@ module.exports = {
 
         if (message.author === user)
             return await message.channel.send("You cant pat yourself!")
-        
+
         const res = await axios.get('https://nekos.life/api/v2/img/pat')
         const embed = new Discord.MessageEmbed()
             .setTitle(user.username + " Just got a pat from " + message.author.username)
@@ -23,6 +23,6 @@ module.exports = {
                 text: `this is so cute`
             })
             .setURL(res.data.url);
-        message.channel.send({embeds: [embed]});
+        message.channel.send({ embeds: [embed] });
     }
 }

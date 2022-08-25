@@ -22,6 +22,6 @@ module.exports = {
                 text: `this is so cute`
             })
             .setURL(res.data.url);
-        message.channel.send({embeds: [embed]});
+        message.channel.send({ embeds: [embed] });
     }
 }

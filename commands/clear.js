@@ -16,7 +16,7 @@ module.exports = {
                     amount = 100;
                 }
             }
-            await message.channel.bulkDelete(amount+1, true).then((_message) => {
+            await message.channel.bulkDelete(amount + 1, true).then((_message) => {
                 message.channel.send(`${message.author} has burned \`${_message.size}\` messages :fire:`).then((sent) => {
                     setTimeout(function () {
                         sent.delete();

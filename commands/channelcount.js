@@ -15,7 +15,7 @@ module.exports = {
                 text: message.author.username,
                 iconURL: message.author.avatarURL
             });
-        message.channel.send({embeds : [embed]});
+        message.channel.send({ embeds: [embed] });
         console.log(`${message.author.username}#${message.author.discriminator} used Channelcount command`)
     }
 }

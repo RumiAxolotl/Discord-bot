@@ -23,26 +23,26 @@ module.exports = {
                     .setTitle(`${member.user.username}'s Info`)
                     .setThumbnail(member.user.displayAvatarURL())
                     .addFields({
-                            name: "**Username:**",
-                            value: `${member.user.username}`,
-                            inline: true
-                        }, {
-                            name: "**Discriminator:**",
-                            value: `#${member.user.discriminator}`,
-                            inline: true
-                        }, {
-                            name: "**ID:**",
-                            value: `${member.user.id}`,
-                            inline: true
-                        }, {
-                            name: "**Joined On:**",
-                            value: `${member.joinedAt.toLocaleString()}`,
-                            inline: true
-                        }, {
-                            name: "**Created On:**",
-                            value: `${member.user.createdAt.toLocaleString()}`,
-                            inline: true
-                        },
+                        name: "**Username:**",
+                        value: `${member.user.username}`,
+                        inline: true
+                    }, {
+                        name: "**Discriminator:**",
+                        value: `#${member.user.discriminator}`,
+                        inline: true
+                    }, {
+                        name: "**ID:**",
+                        value: `${member.user.id}`,
+                        inline: true
+                    }, {
+                        name: "**Joined On:**",
+                        value: `${member.joinedAt.toLocaleString()}`,
+                        inline: true
+                    }, {
+                        name: "**Created On:**",
+                        value: `${member.user.createdAt.toLocaleString()}`,
+                        inline: true
+                    },
 
                     )
                     .setDescription(`${member.roles.cache.map(role => role.toString()).join(' ')}`)

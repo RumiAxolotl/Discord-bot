@@ -16,34 +16,34 @@ module.exports = {
             .setImage(message.guild.iconURL)
             .setTitle("Server Info")
             .addFields({
-                    name: "**Owner:**",
-                    value: `${serverOwner}`,
-                    inline: true
-                }, {
-                    name: "**Created At:**",
-                    value: `${message.guild.createdAt.toLocaleString()}`,
-                    inline: true
-                }, {
-                    name: "**Member Count:**",
-                    value: `${message.guild.memberCount}`,
-                    inline: true
-                }, {
-                    name: "**Emoji Count:**",
-                    value: `${message.guild.emojis.cache.size}`,
-                    inline: true
-                }, {
-                    name: "**Roles Count:**",
-                    value: `${message.guild.roles.cache.size}`,
-                    inline: true
-                }, {
-                    name: "**Tier Boots:**",
-                    value: `${message.guild.premiumTier}`,
-                    inline: true
-                }, {
-                    name: "**Number of Boosts:**",
-                    value: `${message.guild.premiumSubscriptionCount}`,
-                    inline: true
-                },
+                name: "**Owner:**",
+                value: `${serverOwner}`,
+                inline: true
+            }, {
+                name: "**Created At:**",
+                value: `${message.guild.createdAt.toLocaleString()}`,
+                inline: true
+            }, {
+                name: "**Member Count:**",
+                value: `${message.guild.memberCount}`,
+                inline: true
+            }, {
+                name: "**Emoji Count:**",
+                value: `${message.guild.emojis.cache.size}`,
+                inline: true
+            }, {
+                name: "**Roles Count:**",
+                value: `${message.guild.roles.cache.size}`,
+                inline: true
+            }, {
+                name: "**Tier Boots:**",
+                value: `${message.guild.premiumTier}`,
+                inline: true
+            }, {
+                name: "**Number of Boosts:**",
+                value: `${message.guild.premiumSubscriptionCount}`,
+                inline: true
+            },
             )
             .setTimestamp();
         message.channel.send({

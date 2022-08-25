@@ -20,7 +20,7 @@ module.exports = {
                     inline: true
                 })
                 .setTimestamp();
-            textChannel.send({embeds: [embed]});
+            textChannel.send({ embeds: [embed] });
         } else {
             msg = args.join(" ");
             const embed = new MessageEmbed()

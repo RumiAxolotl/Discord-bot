@@ -29,30 +29,30 @@ module.exports = {
                 .setThumbnail(current.imageUrl)
                 .setColor("#fcd303")
                 .addFields({
-                        name: 'Timezone',
-                        value: `UTC${location.timezone}`,
-                        inline: true
-                    }, {
-                        name: 'Degree Type',
-                        value: 'Celsius',
-                        inline: true
-                    }, {
-                        name: 'Temperature',
-                        value: `${current.temperature}°`,
-                        inline: true
-                    }, {
-                        name: 'Wind',
-                        value: `${current.winddisplay}`,
-                        inline: true
-                    }, {
-                        name: 'Feels like',
-                        value: `${current.feelslike}°`,
-                        inline: true
-                    }, {
-                        name: 'Humidity',
-                        value: `${current.humidity}%`,
-                        inline: true
-                    },
+                    name: 'Timezone',
+                    value: `UTC${location.timezone}`,
+                    inline: true
+                }, {
+                    name: 'Degree Type',
+                    value: 'Celsius',
+                    inline: true
+                }, {
+                    name: 'Temperature',
+                    value: `${current.temperature}°`,
+                    inline: true
+                }, {
+                    name: 'Wind',
+                    value: `${current.winddisplay}`,
+                    inline: true
+                }, {
+                    name: 'Feels like',
+                    value: `${current.feelslike}°`,
+                    inline: true
+                }, {
+                    name: 'Humidity',
+                    value: `${current.humidity}%`,
+                    inline: true
+                },
 
                 )
 

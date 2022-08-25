@@ -28,15 +28,15 @@ module.exports = {
             .setTitle('Member Muted')
             .setColor('#f5f500')
             .addFields({
-                    name: 'User Muted',
-                    value: `${user}`
-                }, {
-                    name: 'Reason',
-                    value: `${reason}`
-                }, {
-                    name: 'Muted by',
-                    value: `${message.author}`
-                },
+                name: 'User Muted',
+                value: `${user}`
+            }, {
+                name: 'Reason',
+                value: `${reason}`
+            }, {
+                name: 'Muted by',
+                value: `${message.author}`
+            },
 
             )
             .setFooter({
