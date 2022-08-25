@@ -60,6 +60,9 @@ let task = new cron.CronJob('00 0,30 * * * *', () => {
         ];
         let announce =
             announces[Math.floor(Math.random() * announces.length - 1)];
+        if (announce == undefined) {
+            announce = announces[Math.floor(Math.random() * announces.length - 1)]
+        };
         let getUser = client.users.cache.get(`${member.ID}`);
         let Embed = new Discord.MessageEmbed()
             .setTitle(`Lời nhắc yêu thương gửi đến ${getUser.username} `)
