@@ -56,7 +56,8 @@ let task = new cron.CronJob('00 0,30 * * * *', () => {
             "My sweetie! Remember to drink water!",
             "Do you love me? Maybe not! But remember to drink water!",
             "Người ta sống không riêng bởi bánh, tất nhiên là cần uống nước đầy đủ nữa nhé!",
-            "Muốn có một ngày thành công hơn? Đừng quên uống nước đầy đủ!"
+            "Muốn có một ngày thành công hơn? Đừng quên uống nước đầy đủ!",
+            "Này! Hôm nay đã uống đủ nước chưa đấy? Chưa thì lo mà uống đủ nước để giữ sức khỏe tốt nhé! Còn uống đủ nước rồi thì giữ thói quen uống đủ nước hằng ngày nhé! Luv U <3"
         ];
         let announce =
             announces[Math.floor(Math.random() * announces.length - 1)];
