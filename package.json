@@ -1,25 +1,20 @@
 {
-  "name": "ducky",
+  "name": "Axolotl",
   "version": "13.0.0",
-  "description": "bruh",
-  "main": "index.js",
+  "description": "Axolotl",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "module-install": "npm install nodemon axios common-tags discord.js fs mathjs superagent weather-js cron --save"
+    "start": "nodemon src/index.js"
   },
-  "author": "rumi axolotl",
+  "author": "Rumi Axolotl",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.24.0",
-    "common-tags": "^1.8.2",
-    "cron": "^2.1.0",
     "discord.js": "^13.10.3",
-    "fs": "^0.0.1-security",
-    "mathjs": "^9.5.2",
-    "superagent": "^6.1.0",
+    "dotenv": "^16.4.5",
     "weather-js": "^2.0.0"
   },
   "devDependencies": {
+    "eslint": "^9.7.0",
     "nodemon": "^2.0.19"
   }
 }
