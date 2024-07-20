@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "sleep",
-    desciption: "help you have a better sleep",
+    description: "help you have a better sleep",
 
     async run(client, message, args) {
         message.delete();
