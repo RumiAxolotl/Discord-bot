@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "channelcount",
-    desciption: "count the number of channels",
+    description: "count the number of channels",
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;

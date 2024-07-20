@@ -2,7 +2,7 @@ const { HarmBlockThreshold, HarmCategory, GoogleGenerativeAI } = require("@googl
 
 module.exports = {
     name: "gpt",
-    desciption: "use gpt to answer prompt",
+    description: "use gpt to answer prompt",
 
     async run(client, message, args) {
         input_prompt = args.join(" ");

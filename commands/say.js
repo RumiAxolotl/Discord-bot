@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "say",
-    desciption: "say command",
+    description: "say command",
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;

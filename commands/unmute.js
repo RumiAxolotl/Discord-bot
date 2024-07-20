@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const ownerID = process.env.DEVID;
 module.exports = {
     name: "unmute",
-    description: "Unmute a member from your server",
+    description: "Unmute a member",
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
