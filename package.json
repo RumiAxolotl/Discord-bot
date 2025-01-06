@@ -4,20 +4,21 @@
   "description": "A discord bot that can do a lot of things",
   "main": "src/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "Rumi Axolotl",
   "license": "ISC",
   "dependencies": {
-    "@google/generative-ai": "^0.15.0",
+    "@discordjs/voice": "^0.18.0",
     "discord.js": "^13.10.3",
     "dotenv": "^16.4.5",
+    "google-tts-api": "^2.0.2",
     "math.js": "^1.1.46",
     "openai": "^4.52.7",
     "weather-js": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^9.7.0",
-    "nodemon": "^2.0.19"
+    "nodemon": "^3.1.9"
   }
 }
