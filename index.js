@@ -3,12 +3,10 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 dotenv.config();
 
-
 const allIntents = new Discord.Intents(32767);
 const client = new Discord.Client({
     intents: allIntents,
 });
-
 
 const prefix = process.env.PREFIX;
 
@@ -19,6 +17,12 @@ const commandFiles = fs
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
+    // Add aliases to the collection
+    if (command.aliases) {
+        command.aliases.forEach(alias => {
+            client.commands.set(alias, command);
+        });
+    }
 }
 client.events = new Discord.Collection();
 const eventFiles = fs
@@ -32,6 +36,7 @@ for (const file of eventFiles) {
         client.on(event.name, (...args) => event.execute(...args, client));
     }
 }
+
 client.on("error", console.error);
 client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
@@ -45,6 +50,5 @@ client.on("messageCreate", async (message) => {
         console.error(error);
     }
 });
-
 
 client.login(process.env.TOKEN);
