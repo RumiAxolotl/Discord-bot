@@ -40,13 +40,6 @@ module.exports = {
             connection.subscribe(player);
             player.play(resource);
 
-            // Disconnect after audio finishes
-            player.on('stateChange', (oldState, newState) => {
-                if (newState.status === 'idle') {
-                    connection.destroy();
-                }
-            });
-
         } catch (error) {
             console.error(error);
             await message.reply('There was an error playing the text-to-speech!');

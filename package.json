@@ -2,7 +2,6 @@
   "name": "Discordbot",
   "version": "13.0.0",
   "description": "A discord bot that can do a lot of things",
-  "main": "src/index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
