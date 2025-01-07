@@ -16,7 +16,7 @@ module.exports = {
 
             const welcomeEmbed = new Discord.MessageEmbed()
                 .setColor("#b4befe")
-                .setTitle(` <a:timbayxanhduong:699989307917861047> Chào mừng đền với JS <a:timbayxanhduong:699989307917861047> `)
+                .setTitle(` <a:timbayxanhduong:699989307917861047> Chào mừng đến với JS <a:timbayxanhduong:699989307917861047> `)
                 .setDescription(` <a:Notice:1325732909310672927> Bạn nhớ đọc luật ở <#608607531547492362> 
 
                 <a:Notice:1325732909310672927> Lấy vai trò tương ứng ở <#619763544141070336>
