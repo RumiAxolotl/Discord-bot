@@ -1,6 +1,7 @@
 const ownerID = process.env.DEVID;
 module.exports = {
     name: "clear",
+    aliases: ["delete", "purge"],
     description: "Clears messages",
 
     async run(client, message, args) {
