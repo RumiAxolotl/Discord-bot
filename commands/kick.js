@@ -7,17 +7,17 @@ module.exports = {
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
-        if (!message.member.permissionsIn(message.channel).has("KICK_MEMBERS") || message.author.id != ownerID) return message.channel.send('You can\'t use that, Quack!')
-        if (!message.guild.me.permissionsIn(message.channel).has("KICK_MEMBERS")) return message.channel.send('I don\'t have the right permissions, Quack!')
+        if (!message.member.permissionsIn(message.channel).has("KICK_MEMBERS") || message.author.id != ownerID) return message.channel.send('You can\'t use that!')
+        if (!message.guild.me.permissionsIn(message.channel).has("KICK_MEMBERS")) return message.channel.send('I don\'t have the right permissions!')
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
         if (!args[0]) return message.channel.send('Please specify a user');
 
-        if (!member) return message.channel.send('Can\'t  find this duck. Quack');
-        if (!member.kickable) return message.channel.send('This duck can\'t be kicked. They\'re too powahfool, Quack! ');
+        if (!member) return message.channel.send('Can\'t find this user.');
+        if (!member.kickable) return message.channel.send('This user can\'t be kicked. They\'re too powerful!');
 
-        if (member.id === message.author.id) return message.channel.send('Quack Quack, you can\'t kick yourself!');
+        if (member.id === message.author.id) return message.channel.send('You can\'t kick yourself!');
 
         let KickReason = args.slice(1).join(" ");
 
@@ -56,7 +56,5 @@ module.exports = {
         message.channel.send({
             embeds: [Kickembed]
         });
-
-
     }
 }
