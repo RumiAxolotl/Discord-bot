@@ -6,17 +6,17 @@ module.exports = {
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
-        if (!message.member.permissionsIn(message.channel).has("MANAGE_ROLES") && message.author.id != ownerID) return message.channel.send("You don\'t have enoug powah to run this command");
+        if (!message.member.permissionsIn(message.channel).has("MANAGE_ROLES") && message.author.id != ownerID) return message.channel.send("You don't have enough power to run this command");
 
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
-        if (!user) message.channel.send("This ducky can't be found anywhere in this server");
+        if (!user) return message.channel.send("This user can't be found anywhere in this server");
 
-        if (user.id === message.author.id) return message.channel.send("You cannot mute yourself, stupid duck");
+        if (user.id === message.author.id) return message.channel.send("You cannot mute yourself");
 
         let role = message.guild.roles.cache.find(role => role.name.toLowerCase() === "muted");
 
-        if (!role) return message.channel.send("Cannot find the muted role, quack!");
+        if (!role) return message.channel.send("Cannot find the muted role");
 
         let reason = args.slice(1).join(" ");
         if (!reason) reason = "Unspecified"
@@ -34,11 +34,9 @@ module.exports = {
             }, {
                 name: 'Muted by',
                 value: `${message.author}`
-            },
-
-            )
+            })
             .setFooter({
-                text: 'Time muted ',
+                text: 'Time muted',
                 iconURL: `${client.user.displayAvatarURL()}`
             })
             .setTimestamp()

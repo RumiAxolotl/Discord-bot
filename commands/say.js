@@ -6,32 +6,34 @@ module.exports = {
 
     async run(client, message, args) {
         if (message.channel.type === 'dm') return;
-        if (!message.member.permissionsIn(message.channel).has('MANAGE_MESSAGES')) return message.channel.send("You don\'t have enough powah to run this command");
-        let textChannel = message.mentions.channels.first()
-        message.delete()
+        if (!message.member.permissionsIn(message.channel).has('MANAGE_MESSAGES')) {
+            return message.channel.send("You don't have enough power to run this command");
+        }
 
-        if (textChannel) {
-            msg = args.slice(1).join(" ");
-            const embed = new MessageEmbed()
-                .setColor('#b4befe')
-                .addFields({
-                    name: `**An Axolotl Apear And Say**`,
-                    value: `${msg}`,
-                    inline: true
-                })
-                .setTimestamp();
-            textChannel.send({ embeds: [embed] });
-        } else {
-            msg = args.join(" ");
-            const embed = new MessageEmbed()
-                .setColor('#b4befe')
-                .addFields({
-                    name: `**An Axolotl Appears And Say**`,
-                    value: `${msg}`,
-                    inline: true
-                })
-                .setTimestamp();
-            message.channel.send({ embeds: [embed] })
+        const textChannel = message.mentions.channels.first();
+        const msg = textChannel ? args.slice(1).join(" ") : args.join(" ");
+        
+        if (!msg) {
+            return message.channel.send("Please provide a message to send.");
+        }
+
+        const embed = new MessageEmbed()
+            .setColor('#b4befe')
+            .addFields({
+                name: `**Message**`,
+                value: msg,
+                inline: true
+            })
+            .setTimestamp();
+
+        try {
+            if (textChannel) {
+                await textChannel.send({ embeds: [embed] });
+            } else {
+                await message.channel.send({ embeds: [embed] });
+            }
+        } catch (error) {
+            console.error("Error sending message: ", error);
         }
     }
 }
