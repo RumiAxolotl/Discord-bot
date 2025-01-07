@@ -8,8 +8,6 @@ module.exports = {
     async run(_client, message, _args) {
         if (message.channel.type === "dm") return;
 
-        await message.delete();
-
         const member = message.mentions.members.first();
 
         if (!member) {
