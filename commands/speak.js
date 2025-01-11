@@ -1,12 +1,6 @@
-const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require("@discordjs/voice");
+const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require("@discordjs/voice");
 const googleTTS = require('google-tts-api'); // You'll need to install this package
-const ffmpeg = require('fluent-ffmpeg'); // You'll need to install this package
-const fs = require('fs');
-const { pipeline } = require('stream');
-const { promisify } = require('util');
-const fetch = require('node-fetch'); // You'll need to install this package
-
-const pipelineAsync = promisify(pipeline);
+const  ffmpeg = require('ffmpeg-static'); // You'll need to install this package
 
 module.exports = {
     name: "speak", // Changed from "leave" to "speak"
@@ -32,23 +26,6 @@ module.exports = {
                 host: 'https://translate.google.com',
             });
 
-            // Download the audio file
-            const response = await fetch(audioUrl);
-            if (!response.ok) throw new Error(`unexpected response ${response.statusText}`);
-
-            const audioPath = './audio.mp3';
-            await pipelineAsync(response.body, fs.createWriteStream(audioPath));
-
-            // Convert the audio file to a format that can be played by the Discord bot
-            const outputPath = './audio.ogg';
-            await new Promise((resolve, reject) => {
-                ffmpeg(audioPath)
-                    .toFormat('ogg')
-                    .on('end', resolve)
-                    .on('error', reject)
-                    .save(outputPath);
-            });
-
             // Join the voice channel
             const connection = joinVoiceChannel({
                 channelId: voiceChannel.id,
@@ -58,17 +35,11 @@ module.exports = {
 
             // Create audio player and resource
             const player = createAudioPlayer();
-            const resource = createAudioResource(outputPath);
+            const resource = createAudioResource(audioUrl);
 
             // Play the audio
             connection.subscribe(player);
             player.play(resource);
-
-            player.on(AudioPlayerStatus.Idle, () => {
-                connection.destroy();
-                fs.unlinkSync(audioPath);
-                fs.unlinkSync(outputPath);
-            });
 
         } catch (error) {
             console.error(error);
