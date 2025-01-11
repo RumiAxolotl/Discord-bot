@@ -8,7 +8,7 @@ module.exports = {
     async run(_client, message, _args) {
         if (message.channel.type === "dm") return;
 
-        const member = message.mentions.members.first();
+        const member = message.mentions.members.first() || message.guild.members.cache.get(_args[0]);
 
         if (!member) {
 

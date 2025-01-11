@@ -4,10 +4,10 @@ module.exports = {
         // Ignore messages from bots
         if (message.author.bot) return;
 
-    if (message.content.toLowerCase() === 'wlc') {
+    if (message.content.startsWith('wlc')) {
         const welcomeCommand = client.commands.get('welcome');
         if (welcomeCommand) {
-            welcomeCommand.run(client, message, []);
+            welcomeCommand.run(client, message, message.content.split(' ').slice(1));
         }
     }
     }
