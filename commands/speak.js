@@ -80,7 +80,7 @@ module.exports = {
             });
 
             connection.subscribe(player);
-            player.play(resource);
+            await player.play(resource);
 
         } catch (error) {
             console.error(error);
