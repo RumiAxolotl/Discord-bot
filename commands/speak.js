@@ -11,7 +11,12 @@ module.exports = {
     description: "Make the bot speak text in voice channel",
     
     async run(client, message, args) {
-        const text = args.join(" ");
+        let text = args.join(" ");
+        // Add member name to the text if different from last speaker
+        if (!global.lastSpeaker || global.lastSpeaker !== message.member.displayName) {
+            text = `${message.member.displayName} says ${text}`;
+        }
+        global.lastSpeaker = message.member.displayName;
         if (!text) {
             return message.reply('Please provide some text to speak!');
         }
@@ -44,7 +49,7 @@ module.exports = {
 
             // Process with FFmpeg
             await new Promise((resolve, reject) => {
-                exec(`${ffmpeg} -i ${tempFile} -af "volume=2.0" -c:a libmp3lame ${outputFile}`, (error) => {
+                exec(`${ffmpeg} -i ${tempFile} -af "volume=1.0" -c:a libmp3lame ${outputFile}`, (error) => {
                     if (error) reject(error);
                     else resolve();
                 });
