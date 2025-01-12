@@ -19,6 +19,7 @@
     "math.js": "^1.1.46",
     "node-fetch": "^3.3.2",
     "openai": "^4.52.7",
+    "puppeteer": "^24.0.0",
     "stream": "^0.0.3",
     "util": "^0.12.5",
     "weather-js": "^2.0.0"
