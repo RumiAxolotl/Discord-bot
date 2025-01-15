@@ -12,7 +12,7 @@ module.exports = {
         async function crawlFacebookFeed() {
             const browser = await puppeteer.launch({
                 args: ["--incognito", "--start-maximized"],
-                headless: false,
+                headless: true,
                 defaultViewport: null,
             });
             const page = await browser.newPage();
